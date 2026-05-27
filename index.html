@@ -3,1308 +3,1048 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thiết Bị Vật Lý Trị Liệu | Physio Equipment Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Physio Equipment Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0d1b2a;
-    --teal: #1a8fa0;
-    --teal-light: #22b5cc;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #f5f0e8;
-    --white: #ffffff;
-    --gray-100: #f8f9fa;
-    --gray-200: #e9ecef;
-    --gray-600: #6c757d;
-    --text: #1a1a2e;
-    --elec: #1a6fa0;
-    --elec-light: #e8f4fb;
-    --us: #1a8f6a;
-    --us-light: #e8f5f1;
-    --sw: #8f3a1a;
-    --sw-light: #faf0ec;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* HERO */
-  .hero {
-    background: var(--navy);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px 24px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,143,160,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.10) 0%, transparent 60%);
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold-light);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 100px;
-    margin-bottom: 32px;
-    position: relative;
-    animation: fadeDown 0.8s ease both;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    color: var(--white);
-    line-height: 1.1;
-    max-width: 800px;
-    position: relative;
-    animation: fadeDown 0.8s 0.1s ease both;
-  }
-
-  .hero h1 span {
-    color: var(--teal-light);
-  }
-
-  .hero p {
-    color: rgba(255,255,255,0.6);
-    font-size: 1.1rem;
-    max-width: 560px;
-    line-height: 1.8;
-    margin-top: 20px;
-    position: relative;
-    animation: fadeDown 0.8s 0.2s ease both;
-  }
-
-  .hero-nav {
-    display: flex;
-    gap: 16px;
-    margin-top: 48px;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: relative;
-    animation: fadeDown 0.8s 0.3s ease both;
-  }
-
-  .hero-nav a {
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  .btn-primary {
-    background: var(--teal);
-    color: white;
-    border: 2px solid var(--teal);
-  }
-  .btn-primary:hover { background: var(--teal-light); border-color: var(--teal-light); transform: translateY(-2px); }
-
-  .btn-outline {
-    background: transparent;
-    color: rgba(255,255,255,0.8);
-    border: 2px solid rgba(255,255,255,0.2);
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: white; }
-
-  .scroll-line {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.3);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: fadeDown 1s 0.6s ease both;
-  }
-
-  .scroll-line::after {
-    content: '';
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-    animation: scrollPulse 2s infinite;
-  }
-
-  /* MAIN CONTENT */
-  main {
-    background: var(--cream);
-    border-radius: 32px 32px 0 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  section {
-    padding: 80px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .section-sub {
-    color: var(--gray-600);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 600px;
-  }
-
-  /* DEVICE CARDS */
-  .devices-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 28px;
-    margin-top: 48px;
-  }
-
-  .device-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .device-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-  }
-
-  .card-header {
-    padding: 32px 32px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card-header.elec { background: linear-gradient(135deg, #0d2b45 0%, #1a6fa0 100%); }
-  .card-header.us   { background: linear-gradient(135deg, #0d3328 0%, #1a8f6a 100%); }
-  .card-header.sw   { background: linear-gradient(135deg, #3a1a0d 0%, #8f3a1a 100%); }
-
-  .card-header::after {
-    content: '';
-    position: absolute;
-    right: -20px;
-    top: -20px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .card-icon {
-    font-size: 2.4rem;
-    margin-bottom: 12px;
-  }
-
-  .card-model {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 6px;
-  }
-
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .card-brand {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 500;
-  }
-
-  .card-body {
-    padding: 28px 32px 32px;
-  }
-
-  .card-desc {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-    line-height: 1.7;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .specs-title {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--navy);
-    font-weight: 700;
-    margin-bottom: 14px;
-  }
-
-  .specs-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .specs-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-  }
-
-  .spec-key { color: var(--gray-600); }
-  .spec-val { font-weight: 600; color: var(--navy); text-align: right; max-width: 55%; }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .tag {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 4px 12px;
-    border-radius: 100px;
-  }
-
-  .tag.elec { background: var(--elec-light); color: var(--elec); }
-  .tag.us   { background: var(--us-light); color: var(--us); }
-  .tag.sw   { background: var(--sw-light); color: var(--sw); }
-
-  .indications-title {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--navy);
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .indication-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--gray-600);
-    line-height: 1.5;
-    margin-bottom: 8px;
-  }
-
-  .indication-item .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 5px;
-  }
-
-  .dot.elec { background: var(--elec); }
-  .dot.us   { background: var(--us); }
-  .dot.sw   { background: var(--sw); }
-
-  /* COMPARISON TABLE */
-  #compare {
-    background: white;
-    border-radius: 0;
-    padding: 80px 0;
-  }
-
-  #compare > div {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .table-wrap {
-    overflow-x: auto;
-    margin-top: 48px;
-    border-radius: 16px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-    min-width: 700px;
-  }
-
-  thead tr {
-    background: var(--navy);
-  }
-
-  thead th {
-    padding: 20px 24px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.82rem;
-    letter-spacing: 0.5px;
-  }
-
-  thead th:first-child { color: rgba(255,255,255,0.5); }
-  thead th.elec { color: #7ec8e3; }
-  thead th.us   { color: #7ee3c0; }
-  thead th.sw   { color: #e3a07e; }
-
-  tbody tr { border-bottom: 1px solid var(--gray-200); }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: var(--gray-100); }
-
-  tbody td {
-    padding: 16px 24px;
-    color: var(--text);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-
-  tbody td:first-child {
-    font-weight: 600;
-    color: var(--navy);
-    font-size: 0.82rem;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-
-  .check { color: #1a8f6a; font-weight: 700; }
-  .cross { color: #ccc; }
-  .partial { color: var(--gold); }
-
-  .star-high   { color: #1a8f6a; font-size: 1rem; }
-  .star-med    { color: var(--gold); font-size: 1rem; }
-  .star-low    { color: #ccc; font-size: 1rem; }
-
-  /* PHASE DIAGRAM */
-  .phase-section {
-    background: var(--navy);
-    padding: 80px 24px;
-  }
-
-  .phase-section > div {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .phase-section .section-label { color: var(--gold-light); }
-  .phase-section .section-title { color: white; }
-  .phase-section .section-sub { color: rgba(255,255,255,0.5); }
-
-  .phases {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 48px;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .phase {
-    padding: 36px 28px;
-    position: relative;
-  }
-
-  .phase-acute   { background: rgba(26,111,160,0.2); border-left: 3px solid var(--elec); }
-  .phase-subacute{ background: rgba(26,143,106,0.2); border-left: 3px solid var(--us); }
-  .phase-chronic { background: rgba(143,58,26,0.2);  border-left: 3px solid var(--sw); }
-
-  .phase-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 8px;
-    opacity: 0.15;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  .phase-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  .phase-acute .phase-label   { color: #7ec8e3; }
-  .phase-subacute .phase-label{ color: #7ee3c0; }
-  .phase-chronic .phase-label { color: #e3a07e; }
-
-  .phase h3 {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-
-  .phase p {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.82rem;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .phase-device {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-
-  .phase-acute .phase-device   { background: rgba(26,111,160,0.3); color: #7ec8e3; }
-  .phase-subacute .phase-device{ background: rgba(26,143,106,0.3); color: #7ee3c0; }
-  .phase-chronic .phase-device { background: rgba(143,58,26,0.3);  color: #e3a07e; }
-
-  /* RECOMMENDATIONS */
-  #recommend {
-    padding: 80px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .clinic-tabs {
-    display: flex;
-    gap: 12px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-
-  .tab-btn {
-    padding: 10px 24px;
-    border-radius: 100px;
-    border: 2px solid var(--gray-200);
-    background: white;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.25s;
-    color: var(--gray-600);
-  }
-
-  .tab-btn:hover, .tab-btn.active {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: white;
-  }
-
-  .clinic-content { display: none; margin-top: 32px; }
-  .clinic-content.active { display: block; }
-
-  .clinic-intro {
-    background: var(--navy);
-    border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .clinic-icon { font-size: 2.2rem; flex-shrink: 0; }
-
-  .clinic-intro h3 {
-    font-family: 'Playfair Display', serif;
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 6px;
-  }
-
-  .clinic-intro p {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-
-  .equipment-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .equip-card {
-    background: white;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    border-top: 3px solid transparent;
-    transition: transform 0.2s;
-  }
-
-  .equip-card:hover { transform: translateY(-4px); }
-  .equip-card.essential { border-top-color: var(--teal); }
-  .equip-card.recommended { border-top-color: var(--gold); }
-  .equip-card.optional { border-top-color: var(--gray-200); }
-
-  .equip-badge {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 100px;
-    display: inline-block;
-    margin-bottom: 12px;
-  }
-
-  .badge-essential { background: #e8f8f6; color: var(--teal); }
-  .badge-recommended { background: #fdf6e3; color: #a07830; }
-  .badge-optional { background: var(--gray-100); color: var(--gray-600); }
-
-  .equip-card h4 {
-    font-family: 'Playfair Display', serif;
-    color: var(--navy);
-    font-size: 1rem;
-    margin-bottom: 4px;
-  }
-
-  .equip-card .equip-model {
-    font-size: 0.75rem;
-    color: var(--gray-600);
-    margin-bottom: 10px;
-  }
-
-  .equip-card p {
-    font-size: 0.82rem;
-    color: var(--gray-600);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-
-  .equip-price {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--navy);
-    padding-top: 10px;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  /* TOTAL BUDGET */
-  .budget-bar {
-    margin-top: 28px;
-    background: white;
-    border-radius: 14px;
-    padding: 24px 28px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .budget-bar h4 {
-    font-weight: 600;
-    color: var(--navy);
-    font-size: 0.9rem;
-  }
-
-  .budget-bar span {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--teal);
-    font-weight: 700;
-  }
-
-  .budget-note {
-    font-size: 0.75rem;
-    color: var(--gray-600);
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  footer p {
-    color: rgba(255,255,255,0.3);
-    font-size: 0.8rem;
-    line-height: 1.8;
-  }
-
-  footer a { color: var(--teal-light); text-decoration: none; }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: var(--gray-200);
-    margin: 0 24px;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .phases { grid-template-columns: 1fr; }
-    .devices-grid { grid-template-columns: 1fr; }
-    .phase-num { font-size: 2.5rem; }
-  }
+:root {
+  --bg: #f7f8fc;
+  --white: #ffffff;
+  --surface: #ffffff;
+  --surface2: #f0f2f8;
+  --border: #e4e8f0;
+  --text: #1a1f36;
+  --muted: #6b7a99;
+  --muted2: #9aa3be;
+
+  --blue: #1a6ef5;
+  --blue-soft: #eef3ff;
+  --blue-mid: #c2d4fd;
+
+  --teal: #00a896;
+  --teal-soft: #edfaf8;
+  --teal-mid: #b3e8e2;
+
+  --amber: #d97706;
+  --amber-soft: #fff8eb;
+  --amber-mid: #fcd898;
+
+  --coral: #e05252;
+  --coral-soft: #fff0f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 60px;
+  background: var(--white);
+  border-bottom: 1.5px solid var(--border);
+  gap: 4px;
+  z-index: 10;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-right: 24px;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.nav-tabs { display: flex; gap: 2px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 18px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+  transition: all 0.2s;
+  position: relative;
+}
+.nav-tab:hover { color: var(--text); background: var(--surface2); }
+.nav-tab.active { color: var(--text); background: var(--surface2); }
+.nav-tab.active::after {
+  content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px;
+  height: 2.5px; border-radius: 2px 2px 0 0;
+}
+.nav-tab[data-tab="overview"].active::after  { background: var(--teal); }
+.nav-tab[data-tab="electro"].active::after   { background: var(--blue); }
+.nav-tab[data-tab="ultrasound"].active::after{ background: var(--teal); }
+.nav-tab[data-tab="shockwave"].active::after { background: var(--amber); }
+.nav-tab[data-tab="compare"].active::after   { background: var(--coral); }
+.nav-tab[data-tab="clinic"].active::after    { background: var(--amber); }
+
+.tab-pip { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── CONTENT AREA ── */
+.content-area { flex: 1; overflow: hidden; position: relative; }
+
+.screen {
+  position: absolute; inset: 0;
+  overflow-y: auto;
+  padding: 28px 32px 24px;
+  opacity: 0; pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.screen.active { opacity: 1; pointer-events: all; transform: translateY(0); }
+.screen::-webkit-scrollbar { width: 5px; }
+.screen::-webkit-scrollbar-track { background: transparent; }
+.screen::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ── TYPOGRAPHY ── */
+.page-title {
+  font-family: 'Lora', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.page-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; max-width: 680px; }
+.section-label {
+  font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 8px;
+}
+
+/* ══════════════ OVERVIEW ══════════════ */
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.ov-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.ov-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+.ov-card.elec:hover  { border-color: var(--blue); }
+.ov-card.us:hover    { border-color: var(--teal); }
+.ov-card.sw:hover    { border-color: var(--amber); }
+
+.ov-illustration {
+  width: 100%; height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.ov-card.elec .ov-illustration { background: linear-gradient(135deg, #eef3ff 0%, #dbe8ff 100%); }
+.ov-card.us   .ov-illustration { background: linear-gradient(135deg, #edfaf8 0%, #ccf0ec 100%); }
+.ov-card.sw   .ov-illustration { background: linear-gradient(135deg, #fff8eb 0%, #fde8b0 100%); }
+
+.ov-body { padding: 18px 20px 20px; }
+.ov-tag { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+.ov-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
+.ov-model { font-size: 0.75rem; color: var(--muted); margin-bottom: 10px; }
+.ov-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.chip {
+  font-size: 0.72rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 100px; border: 1.5px solid;
+}
+.chip.elec  { color: var(--blue);  border-color: var(--blue-mid);  background: var(--blue-soft); }
+.chip.us    { color: var(--teal);  border-color: var(--teal-mid);  background: var(--teal-soft); }
+.chip.sw    { color: var(--amber); border-color: var(--amber-mid); background: var(--amber-soft); }
+
+.ov-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; font-weight: 700;
+  padding: 8px 16px; border-radius: 8px;
+  border: none; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: filter 0.15s;
+}
+.ov-btn:hover { filter: brightness(0.92); }
+.ov-btn.elec  { background: var(--blue-soft);  color: var(--blue); }
+.ov-btn.us    { background: var(--teal-soft);  color: var(--teal); }
+.ov-btn.sw    { background: var(--amber-soft); color: var(--amber); }
+
+/* Phase strip */
+.phase-strip {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; border-radius: 14px; overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+}
+.phase-item {
+  padding: 18px 20px; display: flex; align-items: flex-start; gap: 14px;
+  border-right: 1.5px solid var(--border);
+}
+.phase-item:last-child { border-right: none; }
+.ph-num {
+  font-family: 'Lora', serif; font-size: 2.5rem; font-weight: 700;
+  line-height: 1; opacity: 0.12; flex-shrink: 0;
+}
+.ph-label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+.ph-name  { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.ph-sub   { font-size: 0.75rem; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.ph-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  padding: 3px 12px; border-radius: 100px;
+}
+
+/* ══════════════ DETAIL SCREENS ══════════════ */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 20px;
+  height: calc(100vh - 136px);
+}
+.detail-left { display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+.detail-right {
+  display: flex; flex-direction: column; gap: 14px;
+  overflow-y: auto; padding-right: 2px;
+}
+.detail-right::-webkit-scrollbar { width: 4px; }
+.detail-right::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 20px;
+}
+.card-title {
+  font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 14px;
+}
+
+/* Illustration card */
+.illus-card {
+  border-radius: 14px; border: 1.5px solid var(--border);
+  overflow: hidden; flex-shrink: 0;
+}
+.illus-header {
+  height: 150px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.illus-meta { padding: 16px 18px; }
+.illus-brand { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+.illus-name  { font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 2px; }
+.illus-sub   { font-size: 0.78rem; color: var(--muted); }
+
+/* Specs */
+.spec-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.83rem;
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-k { color: var(--muted); font-size: 0.8rem; }
+.spec-v { font-weight: 700; font-size: 0.82rem; text-align: right; }
+
+/* Indications grid */
+.indic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.indic-item {
+  display: flex; align-items: flex-start; gap: 9px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 11px 13px;
+  font-size: 0.82rem; color: var(--text); line-height: 1.5;
+}
+.indic-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* Mechanism steps */
+.mech-step {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.83rem; line-height: 1.55; margin-bottom: 11px;
+}
+.mech-step:last-child { margin-bottom: 0; }
+.mech-n {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 800; flex-shrink: 0; margin-top: 1px;
+}
+
+/* Two-col mini cards */
+.mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mini-card {
+  border-radius: 10px; padding: 14px;
+  border: 1px solid; font-size: 0.82rem;
+}
+.mini-card h5 { font-size: 0.83rem; font-weight: 700; margin-bottom: 5px; }
+.mini-card p  { color: var(--muted); font-size: 0.78rem; line-height: 1.55; }
+
+/* Stat numbers */
+.stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.stat-box {
+  border-radius: 10px; padding: 14px 12px; text-align: center;
+  border: 1px solid;
+}
+.stat-num { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+.stat-lbl { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+
+/* ══════════════ COMPARE ══════════════ */
+.tbl-wrap { overflow-x: auto; border-radius: 12px; border: 1.5px solid var(--border); background: var(--white); }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 620px; }
+thead th {
+  padding: 14px 18px; text-align: left; font-weight: 700;
+  font-size: 0.82rem; background: var(--surface2);
+  border-bottom: 1.5px solid var(--border);
+}
+thead th:first-child { color: var(--muted); width: 22%; }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+tbody td { padding: 11px 18px; vertical-align: middle; line-height: 1.5; font-size: 0.84rem; }
+tbody td:first-child { color: var(--muted); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2px; white-space: nowrap; }
+.chk-hi  { color: var(--teal);  font-weight: 800; }
+.chk-mid { color: var(--amber); font-weight: 700; }
+.chk-no  { color: var(--muted2); }
+
+/* ══════════════ CLINIC ══════════════ */
+.clinic-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.clinic-tab {
+  padding: 8px 18px; border-radius: 8px;
+  font-size: 0.83rem; font-weight: 700;
+  border: 1.5px solid var(--border); background: var(--white);
+  color: var(--muted); cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.clinic-tab:hover { color: var(--text); border-color: #b0bbd4; }
+.clinic-tab.active { background: var(--blue-soft); border-color: var(--blue-mid); color: var(--blue); }
+
+.clinic-panel { display: none; }
+.clinic-panel.active { display: block; }
+
+.clinic-banner {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 16px 20px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 14px;
+}
+.clinic-icon { font-size: 2rem; flex-shrink: 0; }
+.clinic-banner h3 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 3px; }
+.clinic-banner p  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+.equip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 11px; margin-bottom: 12px; }
+
+.eq-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 16px;
+  border-top: 3px solid transparent;
+  transition: box-shadow 0.18s;
+}
+.eq-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.eq-card.ess  { border-top-color: var(--teal); }
+.eq-card.rec  { border-top-color: var(--amber); }
+.eq-card.opt  { border-top-color: var(--border); }
+
+.eq-badge {
+  font-size: 0.64rem; letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 800; padding: 2px 9px; border-radius: 100px;
+  display: inline-block; margin-bottom: 9px;
+}
+.b-ess { background: var(--teal-soft);  color: var(--teal); }
+.b-rec { background: var(--amber-soft); color: var(--amber); }
+.b-opt { background: var(--surface2);   color: var(--muted); }
+
+.eq-card h4    { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+.eq-model      { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; }
+.eq-desc       { font-size: 0.78rem; color: var(--muted); line-height: 1.55; margin-bottom: 9px; }
+.eq-price      { font-size: 0.74rem; font-weight: 700; padding-top: 8px; border-top: 1px solid var(--border); color: var(--text); }
+
+.budget-bar {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.budget-label { font-size: 0.8rem; color: var(--muted); }
+.budget-label strong { display: block; color: var(--text); font-size: 0.88rem; margin-bottom: 1px; }
+.budget-amount { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: var(--teal); white-space: nowrap; }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">Vật Lý Trị Liệu & Phục Hồi Chức Năng</div>
-  <h1>Ba Phương Thức<br><span>Trị Liệu Cốt Lõi</span></h1>
-  <p>Hướng dẫn chuyên sâu về Điện Trị Liệu, Siêu Âm Trị Liệu và Sóng Xung Kích — công cụ nền tảng của phòng khám vật lý trị liệu hiện đại.</p>
-  <div class="hero-nav">
-    <a href="#devices" class="btn-primary">Tìm hiểu thiết bị</a>
-    <a href="#compare" class="btn-outline">So sánh chi tiết</a>
-    <a href="#recommend" class="btn-outline">Gợi ý trang bị</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">⚕ Physio Guide</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview"   onclick="showScreen('overview',this)"><span class="tab-pip" style="background:var(--teal)"></span>Tổng Quan</button>
+    <button class="nav-tab" data-tab="electro"    onclick="showScreen('electro',this)"><span class="tab-pip" style="background:var(--blue)"></span>⚡ Điện Trị Liệu</button>
+    <button class="nav-tab" data-tab="ultrasound" onclick="showScreen('ultrasound',this)"><span class="tab-pip" style="background:var(--teal)"></span>🔊 Siêu Âm</button>
+    <button class="nav-tab" data-tab="shockwave"  onclick="showScreen('shockwave',this)"><span class="tab-pip" style="background:var(--amber)"></span>💥 Sóng Xung Kích</button>
+    <button class="nav-tab" data-tab="compare"    onclick="showScreen('compare',this)"><span class="tab-pip" style="background:var(--coral)"></span>So Sánh</button>
+    <button class="nav-tab" data-tab="clinic"     onclick="showScreen('clinic',this)"><span class="tab-pip" style="background:var(--amber)"></span>Gợi Ý Trang Bị</button>
   </div>
-  <div class="scroll-line">Cuộn xuống</div>
-</section>
+</nav>
 
-<!-- MAIN -->
-<main>
+<div class="content-area">
 
-<!-- DEVICES -->
-<section id="devices">
-  <div class="section-label">Ba Phương Thức Chính</div>
-  <h2 class="section-title">Công Dụng & Chức Năng</h2>
-  <p class="section-sub">Mỗi thiết bị tác động lên mô theo cơ chế vật lý khác nhau, phù hợp với từng giai đoạn và bệnh lý cụ thể.</p>
+<!-- ══════════════ OVERVIEW ══════════════ -->
+<div class="screen active" id="screen-overview">
+  <div class="section-label" style="color:var(--teal)">Vật Lý Trị Liệu & Phục Hồi Chức Năng</div>
+  <h1 class="page-title">Ba Phương Thức Trị Liệu Cốt Lõi</h1>
+  <p class="page-sub">Nhấn vào từng thiết bị để xem chi tiết công dụng, thông số kỹ thuật và chỉ định lâm sàng.</p>
 
-  <div class="devices-grid">
+  <div class="overview-cards">
 
-    <!-- ELECTROTHERAPY -->
-    <div class="device-card">
-      <div class="card-header elec">
-        <div class="card-icon">⚡</div>
-        <div class="card-model">Model: Enraf-Nonius Endomed 482</div>
-        <div class="card-title">Điện Trị Liệu</div>
-        <div class="card-brand">Electrotherapy · Enraf-Nonius, Hà Lan</div>
+    <!-- ELECTRO -->
+    <div class="ov-card elec" onclick="showScreen('electro', document.querySelector('[data-tab=electro]'))">
+      <div class="ov-illustration">
+        <!-- SVG: Electrotherapy illustration -->
+        <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Device body -->
+          <rect x="70" y="20" width="100" height="70" rx="10" fill="white" stroke="#c2d4fd" stroke-width="1.5"/>
+          <rect x="78" y="28" width="84" height="38" rx="6" fill="#eef3ff"/>
+          <!-- Screen content -->
+          <rect x="84" y="33" width="40" height="8" rx="3" fill="#1a6ef5" opacity="0.7"/>
+          <rect x="84" y="45" width="60" height="4" rx="2" fill="#c2d4fd"/>
+          <rect x="84" y="53" width="45" height="4" rx="2" fill="#c2d4fd"/>
+          <!-- Buttons -->
+          <circle cx="145" cy="37" r="7" fill="#1a6ef5" opacity="0.15"/>
+          <circle cx="145" cy="37" r="4" fill="#1a6ef5" opacity="0.5"/>
+          <circle cx="145" cy="53" r="5" fill="#eef3ff" stroke="#c2d4fd" stroke-width="1"/>
+          <!-- Channels -->
+          <text x="78" y="80" font-size="7" fill="#1a6ef5" font-family="sans-serif" font-weight="700">CH1</text>
+          <circle cx="96" cy="77" r="4" fill="#1a6ef5" opacity="0.3"/>
+          <text x="110" y="80" font-size="7" fill="#1a6ef5" font-family="sans-serif" font-weight="700">CH2</text>
+          <circle cx="128" cy="77" r="4" fill="#1a6ef5" opacity="0.3"/>
+          <!-- Cables -->
+          <path d="M96 81 Q80 100 55 105" stroke="#1a6ef5" stroke-width="1.5" stroke-dasharray="3,2" fill="none" opacity="0.6"/>
+          <path d="M128 81 Q145 100 170 105" stroke="#1a6ef5" stroke-width="1.5" stroke-dasharray="3,2" fill="none" opacity="0.6"/>
+          <!-- Electrode pads -->
+          <rect x="40" y="100" width="28" height="16" rx="4" fill="#1a6ef5" opacity="0.15" stroke="#1a6ef5" stroke-width="1"/>
+          <rect x="42" y="104" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+          <rect x="42" y="109" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+          <rect x="172" y="100" width="28" height="16" rx="4" fill="#1a6ef5" opacity="0.15" stroke="#1a6ef5" stroke-width="1"/>
+          <rect x="174" y="104" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+          <rect x="174" y="109" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+          <!-- Pulse waves -->
+          <path d="M18 70 L30 70 L33 55 L37 85 L41 55 L45 85 L48 70 L60 70" stroke="#1a6ef5" stroke-width="2" fill="none" opacity="0.5"/>
+        </svg>
       </div>
-      <div class="card-body">
-        <p class="card-desc">Sử dụng dòng điện trị liệu truyền qua điện cực dán trên da để kích thích thần kinh, cơ và giảm đau. Không xâm lấn, an toàn, là nền tảng của mọi phòng khám vật lý trị liệu.</p>
-
-        <div class="specs-title">Thông số kỹ thuật</div>
-        <ul class="specs-list">
-          <li><span class="spec-key">Số kênh</span><span class="spec-val">2 kênh độc lập 100%</span></li>
-          <li><span class="spec-key">Loại dòng điện</span><span class="spec-val">26 loại/kênh</span></li>
-          <li><span class="spec-key">Phác đồ lập sẵn</span><span class="spec-val">42 (evidence-based)</span></li>
-          <li><span class="spec-key">Nguồn điện</span><span class="spec-val">100–240V / 50–60Hz</span></li>
-          <li><span class="spec-key">Trọng lượng</span><span class="spec-val">2 kg (có pin: 3 kg)</span></li>
-          <li><span class="spec-key">Màn hình</span><span class="spec-val">TFT màu cảm ứng</span></li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag elec">TENS</span>
-          <span class="tag elec">EMS</span>
-          <span class="tag elec">IFT</span>
-          <span class="tag elec">Russian Stim</span>
-          <span class="tag elec">Diadynamic</span>
-          <span class="tag elec">Galvanic</span>
-        </div>
-
-        <div class="indications-title">Chỉ định điều trị</div>
-        <div class="indication-item"><span class="dot elec"></span><span>Đau cấp và mãn tính (TENS, IFT)</span></div>
-        <div class="indication-item"><span class="dot elec"></span><span>Teo cơ, liệt cơ — tái giáo dục thần kinh cơ</span></div>
-        <div class="indication-item"><span class="dot elec"></span><span>Phù nề sau chấn thương, phẫu thuật</span></div>
-        <div class="indication-item"><span class="dot elec"></span><span>Co cứng cơ, co rút cơ</span></div>
-        <div class="indication-item"><span class="dot elec"></span><span>Tăng tuần hoàn cục bộ</span></div>
-        <div class="indication-item"><span class="dot elec"></span><span>Phục hồi chức năng sau đột quỵ</span></div>
+      <div class="ov-body">
+        <div class="ov-tag" style="color:var(--blue)">Electrotherapy</div>
+        <div class="ov-title">Điện Trị Liệu</div>
+        <div class="ov-model">Enraf-Nonius Endomed 482</div>
+        <div class="ov-desc">Kích thích thần kinh–cơ qua dòng điện. Giảm đau cấp, tái giáo dục cơ, phục hồi chức năng vận động.</div>
+        <div class="chips"><span class="chip elec">TENS</span><span class="chip elec">EMS</span><span class="chip elec">IFT</span><span class="chip elec">2 kênh</span></div>
+        <button class="ov-btn elec">Xem chi tiết →</button>
       </div>
     </div>
 
     <!-- ULTRASOUND -->
-    <div class="device-card">
-      <div class="card-header us">
-        <div class="card-icon">🔊</div>
-        <div class="card-model">Model: Enraf-Nonius Sonopuls 490</div>
-        <div class="card-title">Siêu Âm Trị Liệu</div>
-        <div class="card-brand">Ultrasound Therapy · Enraf-Nonius, Hà Lan</div>
+    <div class="ov-card us" onclick="showScreen('ultrasound', document.querySelector('[data-tab=ultrasound]'))">
+      <div class="ov-illustration">
+        <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Device console -->
+          <rect x="60" y="15" width="90" height="60" rx="9" fill="white" stroke="#b3e8e2" stroke-width="1.5"/>
+          <rect x="68" y="22" width="74" height="36" rx="5" fill="#edfaf8"/>
+          <rect x="74" y="27" width="35" height="7" rx="3" fill="#00a896" opacity="0.6"/>
+          <rect x="74" y="38" width="55" height="3" rx="1.5" fill="#b3e8e2"/>
+          <rect x="74" y="44" width="40" height="3" rx="1.5" fill="#b3e8e2"/>
+          <circle cx="128" cy="33" r="8" fill="#edfaf8" stroke="#b3e8e2" stroke-width="1"/>
+          <text x="123" y="37" font-size="8" fill="#00a896" font-family="sans-serif" font-weight="700">1M</text>
+          <!-- Cable -->
+          <path d="M105 75 Q105 95 115 100" stroke="#00a896" stroke-width="2" stroke-dasharray="3,2" fill="none"/>
+          <!-- Probe body -->
+          <rect x="108" y="98" width="18" height="32" rx="8" fill="white" stroke="#b3e8e2" stroke-width="1.5"/>
+          <rect x="112" y="126" width="10" height="5" rx="2" fill="#00a896" opacity="0.5"/>
+          <!-- Sound waves radiating from probe -->
+          <path d="M90 118 Q85 118 83 112 Q81 106 83 100 Q85 94 90 94" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <path d="M85 121 Q78 121 75 113 Q72 105 75 97 Q78 89 85 89" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <path d="M146 118 Q151 118 153 112 Q155 106 153 100 Q151 94 146 94" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <path d="M151 121 Q158 121 161 113 Q164 105 161 97 Q158 89 151 89" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <!-- Tissue layers -->
+          <ellipse cx="116" cy="133" rx="35" ry="5" fill="#00a896" opacity="0.08"/>
+          <rect x="81" y="132" width="70" height="4" rx="2" fill="#b3e8e2" opacity="0.4"/>
+          <!-- Freq label -->
+          <rect x="168" y="50" width="38" height="18" rx="6" fill="white" stroke="#b3e8e2" stroke-width="1"/>
+          <text x="173" y="60" font-size="7" fill="#00a896" font-family="sans-serif" font-weight="700">1 & 3</text>
+          <text x="175" y="68" font-size="6" fill="#b3e8e2" font-family="sans-serif">MHz</text>
+        </svg>
       </div>
-      <div class="card-body">
-        <p class="card-desc">Sử dụng sóng âm tần số cao (1–3 MHz) truyền qua gel tiếp xúc vào mô. Tạo nhiệt mô sâu và vi rung động cơ học ở cấp độ tế bào, thúc đẩy phục hồi mô mềm.</p>
-
-        <div class="specs-title">Thông số kỹ thuật</div>
-        <ul class="specs-list">
-          <li><span class="spec-key">Tần số siêu âm</span><span class="spec-val">1 MHz & 3 MHz</span></li>
-          <li><span class="spec-key">Chế độ</span><span class="spec-val">Liên tục & Xung (5–80%)</span></li>
-          <li><span class="spec-key">Cường độ tối đa</span><span class="spec-val">3 W/cm² (pulsed)</span></li>
-          <li><span class="spec-key">ERA đầu lớn</span><span class="spec-val">5,0 cm²</span></li>
-          <li><span class="spec-key">ERA đầu nhỏ</span><span class="spec-val">0,8 cm²</span></li>
-          <li><span class="spec-key">Phác đồ lập sẵn</span><span class="spec-val">25 (evidence-based)</span></li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag us">Nhiệt mô sâu</span>
-          <span class="tag us">Xung & Liên tục</span>
-          <span class="tag us">Cavitation nhẹ</span>
-          <span class="tag us">Phonophoresis</span>
-        </div>
-
-        <div class="indications-title">Chỉ định điều trị</div>
-        <div class="indication-item"><span class="dot us"></span><span>Viêm gân bán cấp (vai, khuỷu, gót)</span></div>
-        <div class="indication-item"><span class="dot us"></span><span>Co cứng mô mềm, sẹo xơ hóa</span></div>
-        <div class="indication-item"><span class="dot us"></span><span>Bursitis, viêm túi hoạt dịch</span></div>
-        <div class="indication-item"><span class="dot us"></span><span>Đau khớp, thoái hóa khớp nhẹ</span></div>
-        <div class="indication-item"><span class="dot us"></span><span>Hỗ trợ lành vết thương mô mềm</span></div>
-        <div class="indication-item"><span class="dot us"></span><span>Phonophoresis — đưa thuốc vào mô</span></div>
+      <div class="ov-body">
+        <div class="ov-tag" style="color:var(--teal)">Ultrasound Therapy</div>
+        <div class="ov-title">Siêu Âm Trị Liệu</div>
+        <div class="ov-model">Enraf-Nonius Sonopuls 490</div>
+        <div class="ov-desc">Sóng âm 1–3 MHz tạo nhiệt mô sâu và vi rung cơ học. Phục hồi gân cơ, giảm xơ hóa, phonophoresis.</div>
+        <div class="chips"><span class="chip us">1 & 3 MHz</span><span class="chip us">Liên tục & Xung</span><span class="chip us">ERA 5cm²</span></div>
+        <button class="ov-btn us">Xem chi tiết →</button>
       </div>
     </div>
 
     <!-- SHOCKWAVE -->
-    <div class="device-card">
-      <div class="card-header sw">
-        <div class="card-icon">💥</div>
-        <div class="card-model">Model: EMS DolorClast Radial / Enraf-Nonius Endopuls 811</div>
-        <div class="card-title">Sóng Xung Kích</div>
-        <div class="card-brand">Shockwave Therapy (ESWT) · EMS / Enraf-Nonius</div>
+    <div class="ov-card sw" onclick="showScreen('shockwave', document.querySelector('[data-tab=shockwave]'))">
+      <div class="ov-illustration">
+        <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Console box -->
+          <rect x="55" y="15" width="95" height="65" rx="10" fill="white" stroke="#fcd898" stroke-width="1.5"/>
+          <rect x="63" y="23" width="79" height="40" rx="6" fill="#fff8eb"/>
+          <!-- Screen elements -->
+          <rect x="69" y="28" width="38" height="8" rx="3" fill="#d97706" opacity="0.7"/>
+          <rect x="69" y="40" width="65" height="3" rx="1.5" fill="#fcd898"/>
+          <rect x="69" y="47" width="50" height="3" rx="1.5" fill="#fcd898"/>
+          <!-- Pressure gauge -->
+          <circle cx="140" cy="36" r="11" fill="#fff8eb" stroke="#fcd898" stroke-width="1.5"/>
+          <path d="M133 40 A8 8 0 0 1 147 40" stroke="#fcd898" stroke-width="1.5" fill="none"/>
+          <path d="M140 36 L136 30" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/>
+          <text x="136" y="46" font-size="6" fill="#d97706" font-family="sans-serif" font-weight="700">bar</text>
+          <!-- Handpiece -->
+          <rect x="95" y="80" width="50" height="22" rx="8" fill="white" stroke="#fcd898" stroke-width="1.5"/>
+          <rect x="138" y="86" width="14" height="10" rx="3" fill="#d97706" opacity="0.3"/>
+          <!-- Applicator tip -->
+          <rect x="81" y="87" width="14" height="8" rx="3" fill="#d97706" opacity="0.5"/>
+          <!-- Shock waves -->
+          <ellipse cx="68" cy="91" rx="10" ry="6" fill="none" stroke="#d97706" stroke-width="1.5" opacity="0.5"/>
+          <ellipse cx="68" cy="91" rx="18" ry="11" fill="none" stroke="#d97706" stroke-width="1" opacity="0.3"/>
+          <ellipse cx="68" cy="91" rx="27" ry="17" fill="none" stroke="#d97706" stroke-width="0.8" opacity="0.15"/>
+          <!-- Impact point -->
+          <circle cx="68" cy="91" r="5" fill="#d97706" opacity="0.2"/>
+          <circle cx="68" cy="91" r="2.5" fill="#d97706" opacity="0.5"/>
+          <!-- Cable from console to handpiece -->
+          <path d="M102 80 Q100 75 103 75 Q105 75 105 80" stroke="#fcd898" stroke-width="1.5" fill="none"/>
+          <!-- Tissue layer -->
+          <rect x="30" y="108" width="100" height="5" rx="2.5" fill="#fcd898" opacity="0.5"/>
+          <rect x="30" y="116" width="100" height="4" rx="2" fill="#fcd898" opacity="0.3"/>
+          <rect x="30" y="123" width="100" height="4" rx="2" fill="#fcd898" opacity="0.15"/>
+          <!-- Stats badge -->
+          <rect x="168" y="80" width="42" height="36" rx="8" fill="white" stroke="#fcd898" stroke-width="1"/>
+          <text x="175" y="97" font-size="11" fill="#d97706" font-family="sans-serif" font-weight="800">25</text>
+          <text x="174" y="106" font-size="6" fill="#d97706" font-family="sans-serif">Hz max</text>
+          <text x="172" y="114" font-size="6" fill="#fcd898" font-family="sans-serif">1–4 bar</text>
+        </svg>
       </div>
-      <div class="card-body">
-        <p class="card-desc">Sử dụng xung áp suất âm học năng lượng cao bắn vào mô, tạo cavitation mạnh và kích thích tái cấu trúc sinh học. Hiệu quả vượt trội với tổn thương mãn tính mà các phương pháp khác không giải quyết được.</p>
-
-        <div class="specs-title">Thông số kỹ thuật (DolorClast)</div>
-        <ul class="specs-list">
-          <li><span class="spec-key">Áp suất</span><span class="spec-val">1 – 4 bar</span></li>
-          <li><span class="spec-key">Tần số</span><span class="spec-val">1 – 25 Hz</span></li>
-          <li><span class="spec-key">Độ xuyên sâu</span><span class="spec-val">~35–50 mm</span></li>
-          <li><span class="spec-key">Số applicators</span><span class="spec-val">7 loại</span></li>
-          <li><span class="spec-key">Smart Protocols</span><span class="spec-val">5 giao thức</span></li>
-          <li><span class="spec-key">Trọng lượng</span><span class="spec-val">14,5 kg (console)</span></li>
-        </ul>
-
-        <div class="tags">
-          <span class="tag sw">Radial ESWT</span>
-          <span class="tag sw">Cavitation mạnh</span>
-          <span class="tag sw">Cơ học cao</span>
-          <span class="tag sw">Tái cấu trúc mô</span>
-        </div>
-
-        <div class="indications-title">Chỉ định điều trị</div>
-        <div class="indication-item"><span class="dot sw"></span><span>Viêm cân gan bàn chân mãn tính</span></div>
-        <div class="indication-item"><span class="dot sw"></span><span>Vôi hóa gân (calcific tendinitis) — đặc hiệu</span></div>
-        <div class="indication-item"><span class="dot sw"></span><span>Viêm gân Achilles, gân chóp xoay mãn tính</span></div>
-        <div class="indication-item"><span class="dot sw"></span><span>Trigger point cơ sâu (myofascial)</span></div>
-        <div class="indication-item"><span class="dot sw"></span><span>Khuỷu tay tennis/golfer mãn tính</span></div>
-        <div class="indication-item"><span class="dot sw"></span><span>Chậm liền xương, hoại tử xương</span></div>
+      <div class="ov-body">
+        <div class="ov-tag" style="color:var(--amber)">Shockwave · ESWT</div>
+        <div class="ov-title">Sóng Xung Kích</div>
+        <div class="ov-model">EMS DolorClast · Endopuls 811</div>
+        <div class="ov-desc">Xung áp suất âm học cao — phá vôi hóa gân, kích thích tái cấu trúc mô mãn tính, trigger point sâu.</div>
+        <div class="chips"><span class="chip sw">1–4 bar</span><span class="chip sw">25 Hz</span><span class="chip sw">~35mm sâu</span></div>
+        <button class="ov-btn sw">Xem chi tiết →</button>
       </div>
     </div>
 
-  </div>
-</section>
+  </div><!-- overview-cards -->
 
-<div class="divider"></div>
-
-<!-- COMPARISON TABLE -->
-<div id="compare" style="background:white; padding: 80px 0;">
-  <div style="max-width:1200px; margin:0 auto; padding:0 24px;">
-    <div class="section-label">Phân Tích Chi Tiết</div>
-    <h2 class="section-title">Bảng So Sánh Toàn Diện</h2>
-    <p class="section-sub">So sánh trực tiếp 3 phương thức theo các tiêu chí lâm sàng quan trọng nhất.</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th style="color:rgba(255,255,255,0.4); width:22%">Tiêu chí</th>
-            <th class="elec">⚡ Điện Trị Liệu<br><small style="font-weight:400;font-size:0.75rem;opacity:0.7">Endomed 482</small></th>
-            <th class="us">🔊 Siêu Âm Trị Liệu<br><small style="font-weight:400;font-size:0.75rem;opacity:0.7">Sonopuls 490</small></th>
-            <th class="sw">💥 Sóng Xung Kích<br><small style="font-weight:400;font-size:0.75rem;opacity:0.7">DolorClast / Endopuls</small></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Bản chất vật lý</td>
-            <td>Dòng điện qua điện cực da</td>
-            <td>Sóng âm 1–3 MHz qua gel</td>
-            <td>Xung áp suất âm học năng lượng cao</td>
-          </tr>
-          <tr>
-            <td>Cơ chế tác động chính</td>
-            <td>Kích thích thần kinh–cơ điện học</td>
-            <td>Nhiệt mô sâu + vi rung động</td>
-            <td>Cavitation mạnh + kích thích yếu tố tăng trưởng</td>
-          </tr>
-          <tr>
-            <td>Độ xuyên sâu</td>
-            <td>Nông (bề mặt, thần kinh)</td>
-            <td>Trung bình (3–5 cm với 1 MHz)</td>
-            <td>Trung bình–sâu (~3,5–5 cm radial)</td>
-          </tr>
-          <tr>
-            <td>Mức năng lượng mô</td>
-            <td><span class="star-low">●●</span><span class="star-low">○○○</span> Thấp</td>
-            <td><span class="star-med">●●●</span><span class="star-low">○○</span> Trung bình</td>
-            <td><span class="star-high">●●●●●</span> Rất cao</td>
-          </tr>
-          <tr>
-            <td>Giảm đau cấp tính</td>
-            <td><span class="check">✓✓✓</span> Rất tốt</td>
-            <td><span class="check">✓✓</span> Tốt</td>
-            <td><span class="cross">✗</span> Chống chỉ định</td>
-          </tr>
-          <tr>
-            <td>Điều trị mãn tính</td>
-            <td><span class="partial">◑</span> Giới hạn</td>
-            <td><span class="check">✓✓</span> Tốt</td>
-            <td><span class="check">✓✓✓</span> Vượt trội</td>
-          </tr>
-          <tr>
-            <td>Vôi hóa gân</td>
-            <td><span class="cross">✗</span> Không</td>
-            <td><span class="partial">◑</span> Hỗ trợ</td>
-            <td><span class="check">✓✓✓</span> Đặc hiệu</td>
-          </tr>
-          <tr>
-            <td>Trigger point sâu</td>
-            <td><span class="partial">◑</span> Bề mặt</td>
-            <td><span class="check">✓✓</span> Tốt</td>
-            <td><span class="check">✓✓✓</span> Xuất sắc</td>
-          </tr>
-          <tr>
-            <td>Tái giáo dục cơ / liệt</td>
-            <td><span class="check">✓✓✓</span> Đặc hiệu</td>
-            <td><span class="cross">✗</span> Không</td>
-            <td><span class="cross">✗</span> Không</td>
-          </tr>
-          <tr>
-            <td>Phonophoresis</td>
-            <td><span class="cross">✗</span> Không</td>
-            <td><span class="check">✓✓✓</span> Đặc hiệu</td>
-            <td><span class="cross">✗</span> Không</td>
-          </tr>
-          <tr>
-            <td>Số buổi điều trị</td>
-            <td>10–20 buổi</td>
-            <td>6–12 buổi</td>
-            <td><strong>3–5 buổi</strong></td>
-          </tr>
-          <tr>
-            <td>Thời gian/buổi</td>
-            <td>20–30 phút</td>
-            <td>5–10 phút</td>
-            <td><strong>5–10 phút</strong></td>
-          </tr>
-          <tr>
-            <td>Hiệu quả dài hạn</td>
-            <td>Trung bình</td>
-            <td>Tốt</td>
-            <td><strong>Rất tốt</strong> (tái cấu trúc mô)</td>
-          </tr>
-          <tr>
-            <td>Số nghiên cứu LS (RCT)</td>
-            <td>Rất nhiều (>500)</td>
-            <td>Nhiều (>300)</td>
-            <td>Nhiều (>200, DolorClast dẫn đầu)</td>
-          </tr>
-          <tr>
-            <td>Dễ sử dụng</td>
-            <td><span class="check">✓✓✓</span> Rất dễ</td>
-            <td><span class="check">✓✓✓</span> Rất dễ</td>
-            <td><span class="check">✓✓</span> Cần đào tạo</td>
-          </tr>
-          <tr>
-            <td>Chi phí thiết bị (ước tính)</td>
-            <td>$2.000 – $4.000</td>
-            <td>$2.500 – $5.000</td>
-            <td>$8.000 – $25.000</td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- Phase strip -->
+  <div class="phase-strip">
+    <div class="phase-item" style="background:var(--blue-soft)">
+      <div class="ph-num" style="color:var(--blue)">01</div>
+      <div>
+        <div class="ph-label" style="color:var(--blue)">Giai đoạn cấp · 0–72h</div>
+        <div class="ph-name">Viêm, phù nề, đau dữ dội</div>
+        <div class="ph-sub">Cần kiểm soát đau và giảm phù ngay lập tức</div>
+        <span class="ph-tag" style="background:var(--blue-soft);color:var(--blue);border:1px solid var(--blue-mid)">⚡ Điện Trị Liệu (TENS / IFT)</span>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- PHASE SECTION -->
-<div class="phase-section">
-  <div>
-    <div class="section-label">Phác Đồ Lâm Sàng</div>
-    <h2 class="section-title">Dùng Thiết Bị Nào — Khi Nào?</h2>
-    <p class="section-sub">Ba phương thức không thay thế nhau mà bổ sung theo giai đoạn tổn thương.</p>
-
-    <div class="phases">
-      <div class="phase phase-acute">
-        <div class="phase-num">01</div>
-        <div class="phase-label">Giai đoạn 1</div>
-        <h3>Cấp Tính<br>(0 – 72 giờ)</h3>
-        <p>Viêm, phù nề, đau dữ dội. Mô đang trong trạng thái viêm hoạt động. Cần kiểm soát đau và giảm phù.</p>
-        <span class="phase-device">⚡ Điện Trị Liệu (TENS/IFT)</span>
+    <div class="phase-item" style="background:var(--teal-soft)">
+      <div class="ph-num" style="color:var(--teal)">02</div>
+      <div>
+        <div class="ph-label" style="color:var(--teal)">Bán cấp · 3 ngày – 6 tuần</div>
+        <div class="ph-name">Tái tạo mô, phục hồi vận động</div>
+        <div class="ph-sub">Kích thích collagen và độ đàn hồi mô mềm</div>
+        <span class="ph-tag" style="background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal-mid)">🔊 Siêu Âm Trị Liệu</span>
       </div>
-      <div class="phase phase-subacute">
-        <div class="phase-num">02</div>
-        <div class="phase-label">Giai đoạn 2</div>
-        <h3>Bán Cấp<br>(3 ngày – 6 tuần)</h3>
-        <p>Viêm giảm, bắt đầu tái tạo mô. Cần kích thích collagen và phục hồi tầm vận động.</p>
-        <span class="phase-device">🔊 Siêu Âm Trị Liệu</span>
-      </div>
-      <div class="phase phase-chronic">
-        <div class="phase-num">03</div>
-        <div class="phase-label">Giai đoạn 3</div>
-        <h3>Mãn Tính<br>(>6 tuần – nhiều năm)</h3>
-        <p>Mô thoái hóa, xơ hóa, vôi hóa. Viêm đã tắt nhưng mô không tự phục hồi. Cần tác động cơ học mạnh.</p>
-        <span class="phase-device">💥 Sóng Xung Kích (ESWT)</span>
+    </div>
+    <div class="phase-item" style="background:var(--amber-soft)">
+      <div class="ph-num" style="color:var(--amber)">03</div>
+      <div>
+        <div class="ph-label" style="color:var(--amber)">Mãn tính · &gt;6 tuần</div>
+        <div class="ph-name">Xơ hóa, vôi hóa, thoái hóa</div>
+        <div class="ph-sub">Tác động cơ học mạnh để tái cấu trúc mô</div>
+        <span class="ph-tag" style="background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber-mid)">💥 Sóng Xung Kích (ESWT)</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- RECOMMENDATIONS -->
-<div id="recommend" style="background: var(--cream); padding: 80px 24px;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div class="section-label">Gợi Ý Trang Bị</div>
-    <h2 class="section-title">Thiết Bị Cần Thiết Cho Trung Tâm Physio</h2>
-    <p class="section-sub">Khuyến nghị thiết bị theo quy mô và chuyên khoa của trung tâm — từ phòng khám cơ bản đến trung tâm chuyên sâu.</p>
+<!-- ══════════════ ELECTRO ══════════════ -->
+<div class="screen" id="screen-electro">
+  <div class="section-label" style="color:var(--blue)">Electrotherapy · Enraf-Nonius</div>
+  <h1 class="page-title">⚡ Điện Trị Liệu — Endomed 482</h1>
+  <p class="page-sub">2 kênh hoàn toàn độc lập · 26 loại dòng điện · 42 phác đồ evidence-based · Màn hình TFT cảm ứng</p>
 
-    <div class="clinic-tabs">
-      <button class="tab-btn active" onclick="showTab('basic')">🏥 Phòng Khám Cơ Bản</button>
-      <button class="tab-btn" onclick="showTab('standard')">🏢 Trung Tâm Tiêu Chuẩn</button>
-      <button class="tab-btn" onclick="showTab('advanced')">🏆 Trung Tâm Chuyên Sâu</button>
-      <button class="tab-btn" onclick="showTab('sports')">⚽ Phòng Khám Thể Thao</button>
-    </div>
+  <div class="detail-layout">
+    <div class="detail-left">
+      <div class="illus-card">
+        <div class="illus-header" style="background:linear-gradient(135deg,#eef3ff,#dbe8ff)">
+          <svg width="220" height="135" viewBox="0 0 220 135" fill="none">
+            <!-- Machine body -->
+            <rect x="40" y="10" width="140" height="90" rx="12" fill="white" stroke="#c2d4fd" stroke-width="2"/>
+            <rect x="50" y="18" width="120" height="60" rx="8" fill="#eef3ff"/>
+            <!-- Touch screen -->
+            <rect x="56" y="23" width="75" height="48" rx="5" fill="#1a6ef5" opacity="0.08"/>
+            <rect x="60" y="28" width="45" height="8" rx="3" fill="#1a6ef5" opacity="0.6"/>
+            <rect x="60" y="40" width="65" height="3" rx="1.5" fill="#c2d4fd"/>
+            <rect x="60" y="47" width="50" height="3" rx="1.5" fill="#c2d4fd"/>
+            <rect x="60" y="54" width="60" height="3" rx="1.5" fill="#c2d4fd"/>
+            <!-- Control knobs -->
+            <circle cx="150" cy="35" r="11" fill="white" stroke="#c2d4fd" stroke-width="1.5"/>
+            <circle cx="150" cy="35" r="7"  fill="#1a6ef5" opacity="0.15"/>
+            <line x1="150" y1="28" x2="150" y2="32" stroke="#1a6ef5" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="150" cy="58" r="8" fill="white" stroke="#c2d4fd" stroke-width="1.5"/>
+            <circle cx="150" cy="58" r="5" fill="#1a6ef5" opacity="0.12"/>
+            <!-- Channel labels -->
+            <rect x="50" y="74" width="25" height="14" rx="4" fill="#1a6ef5" opacity="0.1"/>
+            <text x="55" y="84" font-size="7" fill="#1a6ef5" font-weight="700" font-family="sans-serif">CH 1</text>
+            <rect x="82" y="74" width="25" height="14" rx="4" fill="#1a6ef5" opacity="0.1"/>
+            <text x="87" y="84" font-size="7" fill="#1a6ef5" font-weight="700" font-family="sans-serif">CH 2</text>
+            <!-- Cables -->
+            <path d="M62 88 Q55 105 35 115" stroke="#1a6ef5" stroke-width="1.5" stroke-dasharray="4,2" fill="none" opacity="0.5"/>
+            <path d="M95 88 Q105 105 175 118" stroke="#1a6ef5" stroke-width="1.5" stroke-dasharray="4,2" fill="none" opacity="0.5"/>
+            <!-- Electrode pads -->
+            <rect x="18" y="108" width="30" height="18" rx="5" fill="#1a6ef5" opacity="0.12" stroke="#1a6ef5" stroke-width="1"/>
+            <rect x="21" y="112" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+            <rect x="21" y="118" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+            <rect x="162" y="112" width="30" height="18" rx="5" fill="#1a6ef5" opacity="0.12" stroke="#1a6ef5" stroke-width="1"/>
+            <rect x="165" y="116" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+            <rect x="165" y="122" width="24" height="3" rx="1.5" fill="#1a6ef5" opacity="0.3"/>
+            <!-- Waveform -->
+            <path d="M5 55 L15 55 L18 40 L22 70 L26 40 L30 70 L33 55 L43 55" stroke="#1a6ef5" stroke-width="2" fill="none" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="illus-meta">
+          <div class="illus-brand" style="color:var(--blue)">Enraf-Nonius · Hà Lan</div>
+          <div class="illus-name">Endomed 482</div>
+          <div class="illus-sub">2-Channel Electrotherapy Unit</div>
+        </div>
+      </div>
 
-    <!-- BASIC -->
-    <div class="clinic-content active" id="tab-basic">
-      <div class="clinic-intro">
-        <div class="clinic-icon">🏥</div>
-        <div>
-          <h3>Phòng Khám Vật Lý Trị Liệu Cơ Bản</h3>
-          <p>Phù hợp cho phòng khám tư nhân 2–4 phòng trị liệu, điều trị đa dạng bệnh lý thông thường: đau lưng, đau vai cổ, phục hồi sau chấn thương thể thao nhẹ, và đau thần kinh.</p>
-        </div>
-      </div>
-      <div class="equipment-grid">
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Điện Trị Liệu</h4>
-          <div class="equip-model">Enraf-Nonius Endomed 482 · 2 kênh</div>
-          <p>Nền tảng không thể thiếu. Giảm đau, kích thích cơ, điều trị phù nề. Giao diện cảm ứng, 42 phác đồ lập sẵn.</p>
-          <div class="equip-price">💰 ~$2.500 – $4.000 · Cần: 2–3 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Siêu Âm Trị Liệu</h4>
-          <div class="equip-model">Enraf-Nonius Sonopuls 490 · 1+3 MHz</div>
-          <p>Điều trị mô mềm, gân cơ, sẹo. Hai tần số 1 và 3 MHz phủ cả mô nông lẫn mô sâu.</p>
-          <div class="equip-price">💰 ~$3.000 – $5.000 · Cần: 1–2 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Máy Kéo Giãn Cột Sống</h4>
-          <div class="equip-model">Cervical & Lumbar Traction</div>
-          <p>Điều trị thoát vị đĩa đệm, đau thần kinh tọa, đau cổ vai. Thường kết hợp với điện trị liệu.</p>
-          <div class="equip-price">💰 ~$2.000 – $4.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Máy Nhiệt (Hồng Ngoại / Paraffin)</h4>
-          <div class="equip-model">Infrared / Paraffin Bath</div>
-          <p>Khởi động mô, giảm co cứng cơ trước khi tập vận động hoặc trị liệu thủ công.</p>
-          <div class="equip-price">💰 ~$500 – $1.500 · Cần: 1–2 đơn vị</div>
-        </div>
-      </div>
-      <div class="budget-bar">
-        <div>
-          <h4>Ngân sách ước tính (thiết bị điện)</h4>
-          <div class="budget-note">Chưa bao gồm nội thất, giường trị liệu, dụng cụ tập</div>
-        </div>
-        <span>$12.000 – $20.000</span>
-      </div>
-    </div>
-
-    <!-- STANDARD -->
-    <div class="clinic-content" id="tab-standard">
-      <div class="clinic-intro">
-        <div class="clinic-icon">🏢</div>
-        <div>
-          <h3>Trung Tâm Phục Hồi Chức Năng Tiêu Chuẩn</h3>
-          <p>Phù hợp cho trung tâm 5–10 phòng, điều trị bệnh nhân sau phẫu thuật, chấn thương thể thao, phục hồi thần kinh, và bệnh lý cơ xương khớp mãn tính.</p>
-        </div>
-      </div>
-      <div class="equipment-grid">
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Điện Trị Liệu</h4>
-          <div class="equip-model">Enraf-Nonius Endomed 482</div>
-          <p>Trang bị đủ cho mỗi phòng trị liệu. Ưu tiên model có pin để linh hoạt di chuyển.</p>
-          <div class="equip-price">💰 ~$3.000/máy · Cần: 4–6 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Siêu Âm Trị Liệu</h4>
-          <div class="equip-model">Enraf-Nonius Sonopuls 492 (combo)</div>
-          <p>Phiên bản 492 kết hợp cả siêu âm và điện trị liệu trong một máy — tiết kiệm không gian.</p>
-          <div class="equip-price">💰 ~$5.000/máy · Cần: 3–4 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Sóng Xung Kích</h4>
-          <div class="equip-model">Enraf-Nonius Endopuls 811</div>
-          <p>Xử lý các bệnh lý mãn tính, trigger point sâu, vôi hóa gân. Không thể thiếu ở trung tâm tiêu chuẩn.</p>
-          <div class="equip-price">💰 ~$8.000 – $12.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Máy Laser Trị Liệu</h4>
-          <div class="equip-model">Low Level Laser Therapy (LLLT)</div>
-          <p>Tăng tốc lành thương, giảm viêm, điều trị vết thương và tổn thương thần kinh ngoại biên.</p>
-          <div class="equip-price">💰 ~$4.000 – $8.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Máy Kéo Giãn Cột Sống</h4>
-          <div class="equip-model">Motorized Traction Table</div>
-          <p>Bàn kéo tự động cho phép kiểm soát lực kéo chính xác. Cần thiết nếu có nhiều bệnh nhân cột sống.</p>
-          <div class="equip-price">💰 ~$3.000 – $6.000 · Cần: 1–2 bàn</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Hệ Thống EMG Biofeedback</h4>
-          <div class="equip-model">Enraf-Nonius Myomed 632</div>
-          <p>Đánh giá và tái giáo dục thần kinh cơ. Hữu ích trong phục hồi sau đột quỵ và chấn thương thể thao.</p>
-          <div class="equip-price">💰 ~$5.000 – $9.000 · Cần: 1 máy</div>
-        </div>
-      </div>
-      <div class="budget-bar">
-        <div>
-          <h4>Ngân sách ước tính (thiết bị điện)</h4>
-          <div class="budget-note">Không bao gồm thiết bị tập phục hồi, phòng gym</div>
-        </div>
-        <span>$45.000 – $80.000</span>
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Thông số kỹ thuật</div>
+        <div class="spec-row"><span class="spec-k">Số kênh</span><span class="spec-v" style="color:var(--blue)">2 (100% độc lập)</span></div>
+        <div class="spec-row"><span class="spec-k">Loại dòng điện</span><span class="spec-v">26 loại / kênh</span></div>
+        <div class="spec-row"><span class="spec-k">Phác đồ lập sẵn</span><span class="spec-v">42 evidence-based</span></div>
+        <div class="spec-row"><span class="spec-k">Vị trí lưu trữ</span><span class="spec-v">1.000+</span></div>
+        <div class="spec-row"><span class="spec-k">Nguồn điện</span><span class="spec-v">100–240V / 50–60Hz</span></div>
+        <div class="spec-row"><span class="spec-k">Kích thước</span><span class="spec-v">24 × 32 × 12 cm</span></div>
+        <div class="spec-row"><span class="spec-k">Trọng lượng</span><span class="spec-v">2 kg (pin: 3 kg)</span></div>
       </div>
     </div>
 
-    <!-- ADVANCED -->
-    <div class="clinic-content" id="tab-advanced">
-      <div class="clinic-intro">
-        <div class="clinic-icon">🏆</div>
-        <div>
-          <h3>Trung Tâm Phục Hồi Chức Năng Chuyên Sâu</h3>
-          <p>Bệnh viện, trung tâm phục hồi chuyên khoa, trung tâm điều trị bệnh lý thần kinh, sau phẫu thuật phức tạp và phục hồi chức năng toàn diện.</p>
+    <div class="detail-right">
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Cơ chế tác động</div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--blue-soft);color:var(--blue)">1</div>
+          <div>Dòng điện qua điện cực dán da → kích thích trực tiếp sợi thần kinh cảm giác (Aβ) và vận động (Aα)</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--blue-soft);color:var(--blue)">2</div>
+          <div><strong>Gate Control (TENS)</strong> — sợi Aβ ức chế dẫn truyền đau qua sừng sau tủy sống → giảm đau tức thì</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--blue-soft);color:var(--blue)">3</div>
+          <div>Kích thích tiết <strong>Endorphin nội sinh</strong> — giảm đau toàn thân kéo dài sau điều trị</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--blue-soft);color:var(--blue)">4</div>
+          <div><strong>EMS/FES</strong> kích thích co cơ → duy trì khối lượng cơ, phục hồi tổ chức thần kinh–cơ</div>
         </div>
       </div>
-      <div class="equipment-grid">
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Điện Trị Liệu Đa Kênh</h4>
-          <div class="equip-model">Enraf-Nonius Endomed 684V (4 kênh)</div>
-          <p>Model 4 kênh độc lập, tích hợp vacuum. Xử lý được nhiều vùng cơ thể đồng thời.</p>
-          <div class="equip-price">💰 ~$6.000 – $10.000 · Cần: 6–10 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Sóng Xung Kích Cao Cấp</h4>
-          <div class="equip-model">EMS DolorClast Radial Shock Waves</div>
-          <p>Thiết bị ESWT radial mạnh nhất thị trường — 25 Hz, kép compressor tích hợp, 7 applicators. Chuẩn nghiên cứu lâm sàng.</p>
-          <div class="equip-price">💰 ~$20.000 – $28.000 · Cần: 1–2 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Siêu Âm Trị Liệu Nâng Cao</h4>
-          <div class="equip-model">Enraf-Nonius Sonopuls 492 + StatUS™</div>
-          <p>Đầu StatUS™ không dây, trị liệu tĩnh không cần di tay — lý tưởng cho bệnh nhân nhiều, tiết kiệm nhân lực.</p>
-          <div class="equip-price">💰 ~$7.000 – $10.000 · Cần: 3–5 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>High Power Laser</h4>
-          <div class="equip-model">Enraf-Nonius Endolaser HP Class IV</div>
-          <p>Laser công suất cao Class IV, xuyên sâu, điều trị viêm khớp, đau thần kinh, vết thương phức tạp.</p>
-          <div class="equip-price">💰 ~$15.000 – $25.000 · Cần: 1–2 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Tecar Therapy / Diathermy</h4>
-          <div class="equip-model">Enraf-Nonius Tecarpuls</div>
-          <p>Nhiệt nội sinh sâu qua capacitive/resistive. Kết hợp với vận động để tăng hiệu quả phục hồi cơ sâu.</p>
-          <div class="equip-price">💰 ~$12.000 – $20.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Áp Lực Khí (Pressotherapy)</h4>
-          <div class="equip-model">Enraf-Nonius EndoPress 442</div>
-          <p>Điều trị phù bạch huyết, phục hồi tuần hoàn chi dưới, rất hữu ích sau phẫu thuật chỉnh hình.</p>
-          <div class="equip-price">💰 ~$4.000 – $7.000 · Cần: 2–3 máy</div>
-        </div>
-        <div class="equip-card optional">
-          <span class="equip-badge badge-optional">Tùy chọn</span>
-          <h4>Sóng Ngắn Diathermy</h4>
-          <div class="equip-model">Enraf-Nonius Curapuls 970</div>
-          <p>Nhiệt sâu cho khớp lớn (háng, gối). Ít phổ biến hơn nhưng vẫn có vai trò trong một số chỉ định đặc thù.</p>
-          <div class="equip-price">💰 ~$8.000 – $15.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card optional">
-          <span class="equip-badge badge-optional">Tùy chọn</span>
-          <h4>Focused Shockwave</h4>
-          <div class="equip-model">Storz Duolith SD1 / EMS Focused</div>
-          <p>Focused ESWT xuyên sâu >6 cm — xử lý cơ chậu hông, gân khớp háng sâu, và chậm liền xương.</p>
-          <div class="equip-price">💰 ~$40.000 – $80.000 · Nếu có chuyên khoa sâu</div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Chỉ định điều trị</div>
+        <div class="indic-grid">
+          <div class="indic-item"><span class="indic-icon">🩹</span><span>Đau cấp và mãn tính (TENS, IFT, Diadynamic)</span></div>
+          <div class="indic-item"><span class="indic-icon">💪</span><span>Teo cơ, liệt cơ — tái giáo dục thần kinh–cơ</span></div>
+          <div class="indic-item"><span class="indic-icon">🫁</span><span>Phù nề sau chấn thương hoặc phẫu thuật</span></div>
+          <div class="indic-item"><span class="indic-icon">🔄</span><span>Co cứng cơ, co rút, spasm</span></div>
+          <div class="indic-item"><span class="indic-icon">🩸</span><span>Tăng tuần hoàn cục bộ, kích thích trofic</span></div>
+          <div class="indic-item"><span class="indic-icon">🧠</span><span>Phục hồi sau đột quỵ, liệt nửa người</span></div>
+          <div class="indic-item"><span class="indic-icon">🦵</span><span>Đau lưng, đau cổ vai, đau thần kinh tọa</span></div>
+          <div class="indic-item"><span class="indic-icon">🏥</span><span>Sau phẫu thuật — phục hồi chức năng sớm</span></div>
         </div>
       </div>
-      <div class="budget-bar">
-        <div>
-          <h4>Ngân sách ước tính (thiết bị điện)</h4>
-          <div class="budget-note">Không bao gồm phòng gym, robot phục hồi, hồ bơi trị liệu</div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Loại dòng điện hỗ trợ</div>
+        <div class="chips">
+          <span class="chip elec">TENS</span><span class="chip elec">EMS / FES</span><span class="chip elec">IFT</span>
+          <span class="chip elec">Russian Stim</span><span class="chip elec">Diadynamic</span>
+          <span class="chip elec">Galvanic</span><span class="chip elec">HVPC</span><span class="chip elec">Micro-current</span><span class="chip elec">Trabert</span>
         </div>
-        <span>$150.000 – $300.000+</span>
       </div>
     </div>
-
-    <!-- SPORTS -->
-    <div class="clinic-content" id="tab-sports">
-      <div class="clinic-intro">
-        <div class="clinic-icon">⚽</div>
-        <div>
-          <h3>Phòng Khám Thể Thao & Chấn Thương</h3>
-          <p>Dành cho CLB thể thao, phòng gym chuyên nghiệp, hoặc phòng khám phục hồi vận động viên. Ưu tiên tốc độ hồi phục, điều trị tại chỗ và tính di động.</p>
-        </div>
-      </div>
-      <div class="equipment-grid">
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Điện Trị Liệu Di Động</h4>
-          <div class="equip-model">Enraf-Nonius Endomed 482 (có pin)</div>
-          <p>Version pin cho phép mang đến sân tập, phòng thay đồ. Điều trị đau cấp ngay tại chỗ sau chấn thương.</p>
-          <div class="equip-price">💰 ~$3.500 – $5.000 · Cần: 2–3 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Sóng Xung Kích Di Động</h4>
-          <div class="equip-model">Enraf-Nonius Endopuls 811 (vali nhôm)</div>
-          <p>Kèm vali đầy đủ phụ kiện, dễ mang đến địa điểm thi đấu. Xử lý nhanh viêm gân mãn tính vận động viên.</p>
-          <div class="equip-price">💰 ~$8.000 – $12.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card essential">
-          <span class="equip-badge badge-essential">Thiết yếu</span>
-          <h4>Siêu Âm Di Động</h4>
-          <div class="equip-model">Enraf-Nonius Sonopuls 490 (có pin)</div>
-          <p>Siêu âm chẩn đoán + trị liệu. Dùng được tại sân — điều trị trigger point và gân cơ sau thi đấu.</p>
-          <div class="equip-price">💰 ~$4.000 – $6.000 · Cần: 1–2 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Laser Class IV Di Động</h4>
-          <div class="equip-model">Enraf-Nonius Endolaser 422</div>
-          <p>Laser xách tay công suất cao — phục hồi nhanh chấn thương cơ, bầm tím, viêm mô mềm cấp tính.</p>
-          <div class="equip-price">💰 ~$6.000 – $12.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card recommended">
-          <span class="equip-badge badge-recommended">Khuyến nghị</span>
-          <h4>Máy Áp Lạnh Cryotherapy</h4>
-          <div class="equip-model">Enraf-Nonius CryOne</div>
-          <p>Luồng khí lạnh –30°C điều trị phù nề cấp, giảm đau tức thì sau chấn thương. Không cần đá hoặc túi lạnh.</p>
-          <div class="equip-price">💰 ~$3.000 – $5.000 · Cần: 1 máy</div>
-        </div>
-        <div class="equip-card optional">
-          <span class="equip-badge badge-optional">Tùy chọn</span>
-          <h4>Biofeedback EMG</h4>
-          <div class="equip-model">Enraf-Nonius Myomed 134</div>
-          <p>Đánh giá sự cân bằng cơ, phát hiện bất đối xứng sớm trước chấn thương. Hữu ích cho vận động viên chuyên nghiệp.</p>
-          <div class="equip-price">💰 ~$3.000 – $5.000 · Cần: 1 máy</div>
-        </div>
-      </div>
-      <div class="budget-bar">
-        <div>
-          <h4>Ngân sách ước tính (thiết bị điện)</h4>
-          <div class="budget-note">Không bao gồm thiết bị gym, hồ bơi, thiết bị đo lường thể thao</div>
-        </div>
-        <span>$30.000 – $55.000</span>
-      </div>
-    </div>
-
   </div>
 </div>
 
-</main>
+<!-- ══════════════ ULTRASOUND ══════════════ -->
+<div class="screen" id="screen-ultrasound">
+  <div class="section-label" style="color:var(--teal)">Ultrasound Therapy · Enraf-Nonius</div>
+  <h1 class="page-title">🔊 Siêu Âm Trị Liệu — Sonopuls 490</h1>
+  <p class="page-sub">Tần số kép 1 & 3 MHz · Liên tục & Xung · ERA 5cm² · 25 phác đồ evidence-based · Đầu probe chống nước 100%</p>
 
-<!-- FOOTER -->
-<footer>
-  <p style="font-family:'Playfair Display',serif; font-size:1.1rem; color:rgba(255,255,255,0.6); margin-bottom:12px;">
-    Physio Equipment Guide
-  </p>
-  <p>Tài liệu tham khảo dành cho chuyên gia vật lý trị liệu và quản lý trung tâm phục hồi chức năng.<br>
-  Thông tin thiết bị từ <a href="https://www.enraf-nonius.com">Enraf-Nonius</a> · <a href="https://ems-dolorclast.com">EMS DolorClast</a><br>
-  Giá cả mang tính tham khảo — liên hệ nhà phân phối để báo giá chính xác.</p>
-</footer>
+  <div class="detail-layout">
+    <div class="detail-left">
+      <div class="illus-card">
+        <div class="illus-header" style="background:linear-gradient(135deg,#edfaf8,#ccf0ec)">
+          <svg width="220" height="135" viewBox="0 0 220 135" fill="none">
+            <!-- Console -->
+            <rect x="35" y="8" width="105" height="72" rx="10" fill="white" stroke="#b3e8e2" stroke-width="1.5"/>
+            <rect x="43" y="15" width="89" height="50" rx="7" fill="#edfaf8"/>
+            <rect x="49" y="20" width="42" height="8" rx="3" fill="#00a896" opacity="0.6"/>
+            <rect x="49" y="32" width="75" height="3" rx="1.5" fill="#b3e8e2"/>
+            <rect x="49" y="39" width="60" height="3" rx="1.5" fill="#b3e8e2"/>
+            <rect x="49" y="46" width="70" height="3" rx="1.5" fill="#b3e8e2"/>
+            <!-- Freq switch -->
+            <rect x="100" y="20" width="24" height="12" rx="4" fill="#00a896" opacity="0.15"/>
+            <text x="102" y="29" font-size="7" fill="#00a896" font-weight="800" font-family="sans-serif">1/3M</text>
+            <!-- Cable to probe -->
+            <path d="M88 80 Q88 100 100 105" stroke="#00a896" stroke-width="2" stroke-dasharray="3,3" fill="none"/>
+            <!-- Probe handle -->
+            <rect x="90" y="103" width="24" height="28" rx="10" fill="white" stroke="#b3e8e2" stroke-width="1.5"/>
+            <rect x="94" y="127" width="16" height="6" rx="3" fill="#00a896" opacity="0.4"/>
+            <!-- 360 contact light ring -->
+            <circle cx="102" cy="104" r="13" fill="none" stroke="#00a896" stroke-width="2" stroke-dasharray="3,2" opacity="0.4"/>
+            <!-- Sound waves left -->
+            <path d="M82 116 Q75 116 73 109 Q71 102 73 95" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <path d="M78 119 Q68 119 65 110 Q62 101 65 92" stroke="#00a896" stroke-width="1.2" fill="none" opacity="0.3"/>
+            <!-- Sound waves right -->
+            <path d="M122 116 Q129 116 131 109 Q133 102 131 95" stroke="#00a896" stroke-width="1.5" fill="none" opacity="0.5"/>
+            <path d="M126 119 Q136 119 139 110 Q142 101 139 92" stroke="#00a896" stroke-width="1.2" fill="none" opacity="0.3"/>
+            <!-- Tissue depth indicator -->
+            <rect x="155" y="85" width="50" height="45" rx="8" fill="white" stroke="#b3e8e2" stroke-width="1"/>
+            <text x="162" y="98" font-size="6.5" fill="#00a896" font-weight="700" font-family="sans-serif">3 MHz</text>
+            <rect x="160" y="102" width="35" height="3" rx="1.5" fill="#00a896" opacity="0.3"/>
+            <text x="159" y="112" font-size="6" fill="#b3e8e2" font-family="sans-serif">&lt; 3cm nông</text>
+            <text x="162" y="122" font-size="6.5" fill="#00a896" font-weight="700" font-family="sans-serif">1 MHz</text>
+            <text x="159" y="130" font-size="6" fill="#b3e8e2" font-family="sans-serif">3–5cm sâu</text>
+          </svg>
+        </div>
+        <div class="illus-meta">
+          <div class="illus-brand" style="color:var(--teal)">Enraf-Nonius · Hà Lan</div>
+          <div class="illus-name">Sonopuls 490</div>
+          <div class="illus-sub">Dual-Frequency Ultrasound Therapy</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Thông số kỹ thuật</div>
+        <div class="spec-row"><span class="spec-k">Tần số siêu âm</span><span class="spec-v" style="color:var(--teal)">1 MHz & 3 MHz</span></div>
+        <div class="spec-row"><span class="spec-k">Duty cycle xung</span><span class="spec-v">5, 10, 20, 50, 80%</span></div>
+        <div class="spec-row"><span class="spec-k">Cường độ liên tục</span><span class="spec-v">0–1,5 W/cm²</span></div>
+        <div class="spec-row"><span class="spec-k">Cường độ xung</span><span class="spec-v">0–3 W/cm²</span></div>
+        <div class="spec-row"><span class="spec-k">ERA đầu lớn / nhỏ</span><span class="spec-v">5,0 / 0,8 cm²</span></div>
+        <div class="spec-row"><span class="spec-k">BNR</span><span class="spec-v">≤ 5,0</span></div>
+        <div class="spec-row"><span class="spec-k">Phác đồ lập sẵn</span><span class="spec-v">25 evidence-based</span></div>
+      </div>
+    </div>
+
+    <div class="detail-right">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Cơ chế tác động</div>
+        <div class="mini-grid">
+          <div class="mini-card" style="background:var(--teal-soft);border-color:var(--teal-mid)">
+            <h5 style="color:var(--teal)">🌡️ Tác động nhiệt</h5>
+            <p>Chế độ <strong>liên tục</strong> — tạo nhiệt mô sâu 3–5 cm. Tăng độ đàn hồi collagen, giảm co cứng, cải thiện tuần hoàn.</p>
+          </div>
+          <div class="mini-card" style="background:#f5fffe;border-color:var(--teal-mid)">
+            <h5 style="color:var(--teal)">🌊 Tác động cơ học</h5>
+            <p>Chế độ <strong>xung</strong> — vi rung động (micro-massage) cấp tế bào. Tăng tính thấm màng, kích thích tái tạo mô.</p>
+          </div>
+          <div class="mini-card" style="background:#f5fffe;border-color:var(--teal-mid)">
+            <h5 style="color:var(--teal)">💊 Phonophoresis</h5>
+            <p>Siêu âm tăng thấm da → đưa thuốc NSAID, corticoid sâu vào mô mục tiêu, không cần tiêm.</p>
+          </div>
+          <div class="mini-card" style="background:var(--teal-soft);border-color:var(--teal-mid)">
+            <h5 style="color:var(--teal)">📡 Chọn tần số</h5>
+            <p><strong>3 MHz</strong>: mô nông &lt;3 cm (bàn tay, cổ tay). <strong>1 MHz</strong>: mô sâu 3–5 cm (vai, lưng, đùi).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Chỉ định điều trị</div>
+        <div class="indic-grid">
+          <div class="indic-item"><span class="indic-icon">🦵</span><span>Viêm gân bán cấp: vai, khuỷu, gót</span></div>
+          <div class="indic-item"><span class="indic-icon">🔒</span><span>Co cứng mô mềm, sẹo xơ hóa sau phẫu thuật</span></div>
+          <div class="indic-item"><span class="indic-icon">💊</span><span>Phonophoresis — đưa thuốc vào mô sâu</span></div>
+          <div class="indic-item"><span class="indic-icon">🫧</span><span>Bursitis, viêm túi hoạt dịch</span></div>
+          <div class="indic-item"><span class="indic-icon">🦴</span><span>Thoái hóa khớp nhẹ–trung bình</span></div>
+          <div class="indic-item"><span class="indic-icon">🩹</span><span>Hỗ trợ lành thương mô mềm</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SHOCKWAVE ══════════════ -->
+<div class="screen" id="screen-shockwave">
+  <div class="section-label" style="color:var(--amber)">Shockwave ESWT · EMS / Enraf-Nonius</div>
+  <h1 class="page-title">💥 Sóng Xung Kích — DolorClast & Endopuls 811</h1>
+  <p class="page-sub">Phương thức duy nhất phá được vôi hóa gân · Tái cấu trúc mô mãn tính · 25 nghiên cứu lâm sàng RCT hàng đầu thế giới</p>
+
+  <div class="detail-layout">
+    <div class="detail-left">
+      <div class="illus-card">
+        <div class="illus-header" style="background:linear-gradient(135deg,#fff8eb,#fde8b0)">
+          <svg width="220" height="135" viewBox="0 0 220 135" fill="none">
+            <!-- Console -->
+            <rect x="30" y="8" width="110" height="68" rx="10" fill="white" stroke="#fcd898" stroke-width="1.5"/>
+            <rect x="38" y="15" width="95" height="48" rx="7" fill="#fff8eb"/>
+            <!-- Screen -->
+            <rect x="44" y="20" width="50" height="10" rx="3" fill="#d97706" opacity="0.6"/>
+            <rect x="44" y="34" width="80" height="3" rx="1.5" fill="#fcd898"/>
+            <rect x="44" y="41" width="60" height="3" rx="1.5" fill="#fcd898"/>
+            <!-- Pressure gauge dial -->
+            <circle cx="148" cy="35" r="14" fill="white" stroke="#fcd898" stroke-width="1.5"/>
+            <path d="M138 42 A10 10 0 0 1 158 42" stroke="#fcd898" stroke-width="1.5" fill="none"/>
+            <path d="M148 35 L143 27" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+            <text x="143" y="47" font-size="7" fill="#d97706" font-weight="700" font-family="sans-serif">bar</text>
+            <!-- Handpiece -->
+            <rect x="65" y="80" width="70" height="24" rx="10" fill="white" stroke="#fcd898" stroke-width="1.5"/>
+            <rect x="120" y="87" width="18" height="10" rx="3" fill="#d97706" opacity="0.2"/>
+            <!-- Tip -->
+            <rect x="47" y="88" width="18" height="8" rx="3" fill="#d97706" opacity="0.6"/>
+            <!-- Radial waves from tip -->
+            <ellipse cx="36" cy="92" rx="9"  ry="5" fill="none" stroke="#d97706" stroke-width="2" opacity="0.6"/>
+            <ellipse cx="36" cy="92" rx="18" ry="10" fill="none" stroke="#d97706" stroke-width="1.5" opacity="0.35"/>
+            <ellipse cx="36" cy="92" rx="28" ry="16" fill="none" stroke="#d97706" stroke-width="1" opacity="0.18"/>
+            <circle cx="36" cy="92" r="4" fill="#d97706" opacity="0.3"/>
+            <!-- Tissue layers -->
+            <rect x="10" y="110" width="120" height="5" rx="2.5" fill="#fcd898" opacity="0.6"/>
+            <rect x="10" y="118" width="120" height="4" rx="2"   fill="#fcd898" opacity="0.35"/>
+            <rect x="10" y="125" width="120" height="4" rx="2"   fill="#fcd898" opacity="0.15"/>
+            <!-- Stats panel -->
+            <rect x="155" y="75" width="52" height="52" rx="10" fill="white" stroke="#fcd898" stroke-width="1"/>
+            <text x="163" y="98" font-size="16" fill="#d97706" font-weight="800" font-family="sans-serif">25</text>
+            <text x="160" y="108" font-size="7" fill="#d97706" font-family="sans-serif" font-weight="700">Hz max</text>
+            <text x="158" y="119" font-size="7" fill="#fcd898" font-family="sans-serif">1 – 4 bar</text>
+            <text x="157" y="128" font-size="7" fill="#fcd898" font-family="sans-serif">~35mm</text>
+          </svg>
+        </div>
+        <div class="illus-meta">
+          <div class="illus-brand" style="color:var(--amber)">EMS · Thụy Sĩ + Enraf-Nonius · Hà Lan</div>
+          <div class="illus-name">DolorClast + Endopuls 811</div>
+          <div class="illus-sub">Radial Extracorporeal Shockwave (rESWT)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Thông số — DolorClast</div>
+        <div class="spec-row"><span class="spec-k">Áp suất</span><span class="spec-v" style="color:var(--amber)">1 – 4 bar</span></div>
+        <div class="spec-row"><span class="spec-k">Tần số tối đa</span><span class="spec-v" style="color:var(--amber)">25 Hz</span></div>
+        <div class="spec-row"><span class="spec-k">Độ xuyên sâu</span><span class="spec-v">~35–50 mm</span></div>
+        <div class="spec-row"><span class="spec-k">Bộ applicators</span><span class="spec-v">7 loại</span></div>
+        <div class="spec-row"><span class="spec-k">Smart Protocols</span><span class="spec-v">5 giao thức</span></div>
+        <div class="spec-row"><span class="spec-k">Compressor</span><span class="spec-v">Kép, tích hợp</span></div>
+        <div class="spec-row"><span class="spec-k">Endopuls 811 energy</span><span class="spec-v">60–185 mJ</span></div>
+      </div>
+    </div>
+
+    <div class="detail-right">
+      <div class="stat-row">
+        <div class="stat-box" style="background:var(--amber-soft);border-color:var(--amber-mid)">
+          <div class="stat-num" style="color:var(--amber)">25</div>
+          <div class="stat-lbl">Nghiên cứu lâm sàng<br>DolorClast (RCT)</div>
+        </div>
+        <div class="stat-box" style="background:#fffbf0;border-color:var(--amber-mid)">
+          <div class="stat-num" style="color:var(--amber)">200%</div>
+          <div class="stat-lbl">Năng lượng hơn đối thủ<br>tại tần số ≥15 Hz</div>
+        </div>
+        <div class="stat-box" style="background:#fffbf0;border-color:var(--amber-mid)">
+          <div class="stat-num" style="color:var(--amber)">3–5</div>
+          <div class="stat-lbl">Buổi điều trị<br>cho hiệu quả rõ rệt</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Cơ chế tác động — Đặc trưng của ESWT</div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--amber-soft);color:var(--amber)">1</div>
+          <div><strong>Cavitation mạnh</strong> — Bong bóng vi thể nổ trong mô, tạo lực cơ học phá vỡ cấu trúc xơ hóa và vôi hóa</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--amber-soft);color:var(--amber)">2</div>
+          <div><strong>Yếu tố tăng trưởng</strong> — Giải phóng TGF-β, VEGF, IGF-1 → kích thích tái tạo mạch máu và tổng hợp collagen mới</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--amber-soft);color:var(--amber)">3</div>
+          <div><strong>Ức chế sợi C</strong> — Kích thích mạnh ban đầu làm tê liệt thụ thể đau trong thời gian dài (giảm đau kéo dài)</div>
+        </div>
+        <div class="mech-step">
+          <div class="mech-n" style="background:var(--amber-soft);color:var(--amber)">4</div>
+          <div><strong>Tái cấu trúc mô</strong> — Mô tiếp tục tự phục hồi 3–6 tháng sau khi kết thúc điều trị</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="color:var(--amber)">Chỉ định đặc hiệu</div>
+        <div class="indic-grid">
+          <div class="indic-item"><span class="indic-icon">🦴</span><span>Vôi hóa gân (calcific tendinitis) — đặc hiệu nhất</span></div>
+          <div class="indic-item"><span class="indic-icon">🦶</span><span>Viêm cân gan bàn chân mãn tính</span></div>
+          <div class="indic-item"><span class="indic-icon">🎾</span><span>Khuỷu tay tennis / golfer mãn tính</span></div>
+          <div class="indic-item"><span class="indic-icon">🎯</span><span>Trigger point myofascial cơ sâu</span></div>
+          <div class="indic-item"><span class="indic-icon">🏃</span><span>Viêm gân Achilles, gân chóp xoay mãn tính</span></div>
+          <div class="indic-item"><span class="indic-icon">🦴</span><span>Chậm liền xương, hoại tử xương</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ COMPARE ══════════════ -->
+<div class="screen" id="screen-compare">
+  <div class="section-label" style="color:var(--coral)">Phân Tích Chi Tiết</div>
+  <h1 class="page-title">Bảng So Sánh Toàn Diện</h1>
+  <p class="page-sub">So sánh trực tiếp 3 phương thức theo 15 tiêu chí lâm sàng — từ cơ chế vật lý đến hiệu quả và chi phí.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí so sánh</th>
+          <th style="color:var(--blue)">⚡ Điện Trị Liệu<br><span style="color:var(--muted2);font-weight:400;font-size:0.75rem">Endomed 482</span></th>
+          <th style="color:var(--teal)">🔊 Siêu Âm<br><span style="color:var(--muted2);font-weight:400;font-size:0.75rem">Sonopuls 490</span></th>
+          <th style="color:var(--amber)">💥 Sóng Xung Kích<br><span style="color:var(--muted2);font-weight:400;font-size:0.75rem">DolorClast</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Bản chất vật lý</td><td>Dòng điện qua điện cực da</td><td>Sóng âm 1–3 MHz qua gel</td><td>Xung áp suất âm học năng lượng cao</td></tr>
+        <tr><td>Cơ chế chính</td><td>Kích thích thần kinh–cơ điện học</td><td>Nhiệt mô sâu + vi rung động</td><td>Cavitation + yếu tố tăng trưởng</td></tr>
+        <tr><td>Độ xuyên sâu</td><td>Nông (thần kinh da)</td><td>3–5 cm (1 MHz)</td><td>~35–50 mm</td></tr>
+        <tr><td>Mức năng lượng mô</td>
+          <td><span style="color:var(--blue)">●●</span><span style="color:#dde3ef">●●●</span> Thấp</td>
+          <td><span style="color:var(--teal)">●●●</span><span style="color:#dde3ef">●●</span> Trung bình</td>
+          <td><span style="color:var(--amber)">●●●●●</span> Rất cao</td></tr>
+        <tr><td>Giảm đau cấp</td><td><span class="chk-hi">✓✓✓</span> Xuất sắc</td><td><span class="chk-hi">✓✓</span> Tốt</td><td><span class="chk-no">✗</span> Chống chỉ định</td></tr>
+        <tr><td>Bệnh lý mãn tính</td><td><span class="chk-mid">◑</span> Giới hạn</td><td><span class="chk-hi">✓✓</span> Tốt</td><td><span class="chk-hi">✓✓✓</span> Vượt trội</td></tr>
+        <tr><td>Vôi hóa gân</td><td><span class="chk-no">✗</span> Không</td><td><span class="chk-mid">◑</span> Hỗ trợ nhẹ</td><td><span class="chk-hi">✓✓✓</span> Đặc hiệu</td></tr>
+        <tr><td>Trigger point sâu</td><td><span class="chk-mid">◑</span> Bề mặt</td><td><span class="chk-hi">✓✓</span> Tốt</td><td><span class="chk-hi">✓✓✓</span> Xuất sắc</td></tr>
+        <tr><td>Tái giáo dục cơ / liệt</td><td><span class="chk-hi">✓✓✓</span> Đặc hiệu</td><td><span class="chk-no">✗</span> Không</td><td><span class="chk-no">✗</span> Không</td></tr>
+        <tr><td>Phonophoresis</td><td><span class="chk-no">✗</span> Không</td><td><span class="chk-hi">✓✓✓</span> Đặc hiệu</td><td><span class="chk-no">✗</span> Không</td></tr>
+        <tr><td>Số buổi điều trị</td><td>10–20 buổi</td><td>6–12 buổi</td><td style="color:var(--amber);font-weight:700">3–5 buổi</td></tr>
+        <tr><td>Thời gian / buổi</td><td>20–30 phút</td><td>5–10 phút</td><td>5–10 phút</td></tr>
+        <tr><td>Hiệu quả dài hạn</td><td>Trung bình</td><td>Tốt</td><td style="color:var(--amber);font-weight:700">Rất tốt (tái cấu trúc)</td></tr>
+        <tr><td>Chi phí thiết bị</td>
+          <td style="color:var(--blue);font-weight:700">$2.000–4.000</td>
+          <td style="color:var(--teal);font-weight:700">$2.500–5.000</td>
+          <td style="color:var(--amber);font-weight:700">$8.000–28.000</td></tr>
+        <tr><td>Nghiên cứu lâm sàng</td><td>&gt;500 RCT</td><td>&gt;300 RCT</td><td>&gt;200 RCT (DolorClast: 25)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════ CLINIC ══════════════ -->
+<div class="screen" id="screen-clinic">
+  <div class="section-label" style="color:var(--amber)">Gợi Ý Trang Bị</div>
+  <h1 class="page-title">Thiết Bị Theo Quy Mô Trung Tâm</h1>
+  <p class="page-sub">Chọn loại phòng khám để xem danh sách thiết bị và ngân sách ước tính.</p>
+
+  <div class="clinic-tabs">
+    <button class="clinic-tab active" onclick="showClinic('basic',this)">🏥 Phòng Khám Cơ Bản</button>
+    <button class="clinic-tab" onclick="showClinic('standard',this)">🏢 Trung Tâm Tiêu Chuẩn</button>
+    <button class="clinic-tab" onclick="showClinic('advanced',this)">🏆 Trung Tâm Chuyên Sâu</button>
+    <button class="clinic-tab" onclick="showClinic('sports',this)">⚽ Phòng Khám Thể Thao</button>
+  </div>
+
+  <!-- BASIC -->
+  <div class="clinic-panel active" id="clinic-basic">
+    <div class="clinic-banner">
+      <div class="clinic-icon">🏥</div>
+      <div><h3>Phòng Khám VL Trị Liệu Cơ Bản</h3><p>2–4 phòng. Bệnh lý thông thường: đau lưng, vai cổ, chấn thương nhẹ, đau thần kinh. Phù hợp phòng khám tư nhân mới thành lập.</p></div>
+    </div>
+    <div class="equip-grid">
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Điện Trị Liệu</h4><div class="eq-model">Enraf-Nonius Endomed 482</div><div class="eq-desc">Nền tảng không thể thiếu. Giảm đau, kích thích cơ, 42 phác đồ lập sẵn, màn hình cảm ứng.</div><div class="eq-price">~$2.500–4.000 · Cần: 2–3 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Siêu Âm Trị Liệu</h4><div class="eq-model">Enraf-Nonius Sonopuls 490</div><div class="eq-desc">Điều trị mô mềm, gân cơ, sẹo. Tần số kép 1 & 3 MHz cho cả mô nông lẫn sâu.</div><div class="eq-price">~$3.000–5.000 · Cần: 1–2 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Kéo Giãn Cột Sống</h4><div class="eq-model">Cervical & Lumbar Traction</div><div class="eq-desc">Thoát vị đĩa đệm, đau thần kinh tọa. Kết hợp với điện trị liệu hiệu quả cao.</div><div class="eq-price">~$2.000–4.000 · Cần: 1 bàn</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Nhiệt Trị Liệu</h4><div class="eq-model">Hồng ngoại / Paraffin Bath</div><div class="eq-desc">Khởi động mô, giảm co cứng cơ trước khi trị liệu thủ công hoặc tập vận động.</div><div class="eq-price">~$500–1.500 · Cần: 1–2 đơn vị</div></div>
+    </div>
+    <div class="budget-bar"><div class="budget-label"><strong>Ngân sách thiết bị điện</strong>Chưa gồm nội thất, giường trị liệu</div><div class="budget-amount">$12.000 – $20.000</div></div>
+  </div>
+
+  <!-- STANDARD -->
+  <div class="clinic-panel" id="clinic-standard">
+    <div class="clinic-banner">
+      <div class="clinic-icon">🏢</div>
+      <div><h3>Trung Tâm Phục Hồi Chức Năng Tiêu Chuẩn</h3><p>5–10 phòng. Sau phẫu thuật, chấn thương thể thao, bệnh lý mãn tính. Cần máy ESWT để xử lý ca khó.</p></div>
+    </div>
+    <div class="equip-grid">
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Điện Trị Liệu</h4><div class="eq-model">Enraf-Nonius Endomed 482 (có pin)</div><div class="eq-desc">Mỗi phòng 1 máy. Ưu tiên version pin để linh hoạt di chuyển trong trung tâm.</div><div class="eq-price">~$3.000/máy · Cần: 4–6 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Siêu Âm + Điện (combo)</h4><div class="eq-model">Enraf-Nonius Sonopuls 492</div><div class="eq-desc">Kết hợp siêu âm và điện trị liệu trong một máy — tiết kiệm không gian, hiệu quả hơn.</div><div class="eq-price">~$5.000/máy · Cần: 3–4 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Sóng Xung Kích</h4><div class="eq-model">Enraf-Nonius Endopuls 811</div><div class="eq-desc">Xử lý bệnh mãn tính, trigger point sâu, vôi hóa gân. Không thể thiếu ở trung tâm tiêu chuẩn.</div><div class="eq-price">~$8.000–12.000 · Cần: 1 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Laser Trị Liệu</h4><div class="eq-model">Low Level Laser (LLLT)</div><div class="eq-desc">Tăng tốc lành thương, giảm viêm, điều trị thần kinh ngoại biên. Bổ sung hoàn hảo cho ESWT.</div><div class="eq-price">~$4.000–8.000 · Cần: 1 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Bàn Kéo Tự Động</h4><div class="eq-model">Motorized Traction Table</div><div class="eq-desc">Kiểm soát lực kéo chính xác. Cần thiết nếu nhiều bệnh nhân cột sống thoát vị.</div><div class="eq-price">~$3.000–6.000 · Cần: 1–2 bàn</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>EMG Biofeedback</h4><div class="eq-model">Enraf-Nonius Myomed 632</div><div class="eq-desc">Đánh giá và tái giáo dục thần kinh cơ. Sau đột quỵ và chấn thương thể thao.</div><div class="eq-price">~$5.000–9.000 · Cần: 1 máy</div></div>
+    </div>
+    <div class="budget-bar"><div class="budget-label"><strong>Ngân sách thiết bị điện</strong>Không gồm thiết bị tập, phòng gym</div><div class="budget-amount">$45.000 – $80.000</div></div>
+  </div>
+
+  <!-- ADVANCED -->
+  <div class="clinic-panel" id="clinic-advanced">
+    <div class="clinic-banner">
+      <div class="clinic-icon">🏆</div>
+      <div><h3>Trung Tâm Phục Hồi Chức Năng Chuyên Sâu</h3><p>Bệnh viện, trung tâm chuyên khoa. Điều trị phức tạp: thần kinh, sau phẫu thuật lớn, bệnh lý cơ xương khớp nặng. Cần thiết bị high-end.</p></div>
+    </div>
+    <div class="equip-grid">
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Điện Trị Liệu 4 Kênh</h4><div class="eq-model">Enraf-Nonius Endomed 684V</div><div class="eq-desc">4 kênh độc lập + vacuum Vacotron. Điều trị nhiều vùng đồng thời, hiệu quả cao.</div><div class="eq-price">~$6.000–10.000 · Cần: 6–10 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>ESWT Cao Cấp</h4><div class="eq-model">EMS DolorClast Radial Shock Waves</div><div class="eq-desc">Mạnh nhất thị trường — 25 Hz, dual compressor, 7 applicators. Chuẩn nghiên cứu lâm sàng quốc tế.</div><div class="eq-price">~$20.000–28.000 · Cần: 1–2 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Siêu Âm + StatUS™</h4><div class="eq-model">Enraf-Nonius Sonopuls 492 + StatUS™</div><div class="eq-desc">Đầu tĩnh không cần di tay — tiết kiệm nhân lực, điều trị được nhiều bệnh nhân hơn.</div><div class="eq-price">~$7.000–10.000 · Cần: 3–5 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>High Power Laser Class IV</h4><div class="eq-model">Enraf-Nonius Endolaser HP</div><div class="eq-desc">Xuyên sâu, điều trị viêm khớp nặng, thần kinh, vết thương phức tạp không đáp ứng điều trị thông thường.</div><div class="eq-price">~$15.000–25.000 · Cần: 1–2 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Tecar / Diathermy</h4><div class="eq-model">Enraf-Nonius Tecarpuls</div><div class="eq-desc">Nhiệt nội sinh sâu qua capacitive/resistive. Kết hợp vận động → phục hồi cơ sâu hiệu quả cao.</div><div class="eq-price">~$12.000–20.000 · Cần: 1 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Áp Lực Khí</h4><div class="eq-model">Enraf-Nonius EndoPress 442</div><div class="eq-desc">Phù bạch huyết, phục hồi tuần hoàn chi. Cần thiết sau phẫu thuật chỉnh hình lớn.</div><div class="eq-price">~$4.000–7.000 · Cần: 2–3 máy</div></div>
+      <div class="eq-card opt"><span class="eq-badge b-opt">Tùy chọn</span><h4>Focused Shockwave</h4><div class="eq-model">Storz Duolith SD1 / EMS Focused</div><div class="eq-desc">Xuyên sâu &gt;6 cm — cơ chậu hông, gân sâu, chậm liền xương. Cần nếu có chuyên khoa chỉnh hình sâu.</div><div class="eq-price">~$40.000–80.000 · Nếu có chỉ định</div></div>
+      <div class="eq-card opt"><span class="eq-badge b-opt">Tùy chọn</span><h4>Sóng Ngắn Diathermy</h4><div class="eq-model">Enraf-Nonius Curapuls 970</div><div class="eq-desc">Nhiệt sâu khớp lớn (háng, gối). Vai trò hẹp nhưng có chỉ định đặc thù không thay thế được.</div><div class="eq-price">~$8.000–15.000 · 1 máy nếu cần</div></div>
+    </div>
+    <div class="budget-bar"><div class="budget-label"><strong>Ngân sách thiết bị điện</strong>Không gồm gym, robot, hồ bơi trị liệu</div><div class="budget-amount">$150.000 – $300.000+</div></div>
+  </div>
+
+  <!-- SPORTS -->
+  <div class="clinic-panel" id="clinic-sports">
+    <div class="clinic-banner">
+      <div class="clinic-icon">⚽</div>
+      <div><h3>Phòng Khám Thể Thao & Chấn Thương</h3><p>CLB thể thao, phòng gym chuyên nghiệp. Ưu tiên tốc độ phục hồi, tính di động cao, điều trị tại sân khi cần.</p></div>
+    </div>
+    <div class="equip-grid">
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Điện Trị Liệu Di Động</h4><div class="eq-model">Enraf-Nonius Endomed 482 (có pin)</div><div class="eq-desc">Mang đến sân tập, phòng thay đồ. Điều trị đau cấp ngay sau chấn thương tại chỗ.</div><div class="eq-price">~$3.500–5.000 · Cần: 2–3 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>ESWT Di Động</h4><div class="eq-model">Enraf-Nonius Endopuls 811 (vali)</div><div class="eq-desc">Vali nhôm đầy đủ phụ kiện. Mang đến địa điểm thi đấu, xử lý nhanh viêm gân mãn tính.</div><div class="eq-price">~$8.000–12.000 · Cần: 1 máy</div></div>
+      <div class="eq-card ess"><span class="eq-badge b-ess">Thiết yếu</span><h4>Siêu Âm Di Động</h4><div class="eq-model">Enraf-Nonius Sonopuls 490 (có pin)</div><div class="eq-desc">Dùng tại sân — trigger point và gân cơ sau thi đấu. Pin đủ dùng cả buổi điều trị.</div><div class="eq-price">~$4.000–6.000 · Cần: 1–2 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Laser Di Động</h4><div class="eq-model">Enraf-Nonius Endolaser 422</div><div class="eq-desc">Laser xách tay — phục hồi nhanh chấn thương cơ, bầm tím, viêm mô mềm cấp sau va chạm.</div><div class="eq-price">~$6.000–12.000 · Cần: 1 máy</div></div>
+      <div class="eq-card rec"><span class="eq-badge b-rec">Khuyến nghị</span><h4>Cryotherapy</h4><div class="eq-model">Enraf-Nonius CryOne (–30°C)</div><div class="eq-desc">Luồng khí lạnh tức thì. Không cần đá — an toàn, kiểm soát nhiệt độ chính xác, giảm đau nhanh.</div><div class="eq-price">~$3.000–5.000 · Cần: 1 máy</div></div>
+      <div class="eq-card opt"><span class="eq-badge b-opt">Tùy chọn</span><h4>EMG Biofeedback</h4><div class="eq-model">Enraf-Nonius Myomed 134</div><div class="eq-desc">Phát hiện bất đối xứng cơ, phòng ngừa chấn thương cho vận động viên chuyên nghiệp cạnh tranh cao.</div><div class="eq-price">~$3.000–5.000 · Cần: 1 máy</div></div>
+    </div>
+    <div class="budget-bar"><div class="budget-label"><strong>Ngân sách thiết bị điện</strong>Không gồm thiết bị gym, đo lường thể thao</div><div class="budget-amount">$30.000 – $55.000</div></div>
+  </div>
+
+</div><!-- screen-clinic -->
+</div><!-- content-area -->
 
 <script>
-function showTab(id) {
-  document.querySelectorAll('.clinic-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
+function showScreen(id, btn) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
 }
-
-// Scroll fade-in
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.device-card, .equip-card, .phase').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
+function showClinic(id, btn) {
+  document.querySelectorAll('.clinic-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.clinic-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('clinic-' + id).classList.add('active');
+  btn.classList.add('active');
+}
 </script>
-
 </body>
 </html>
